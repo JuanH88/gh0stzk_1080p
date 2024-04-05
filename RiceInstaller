@@ -113,7 +113,7 @@ fi
 logo "Downloading dotfiles"
 
 repo_url="https://github.com/JuanH88/gh0stzk_1080p"
-repo_dir="$HOME/dotfiles"
+repo_dir="$HOME/gh0stzk_1080p"
 
 # Verifica si el directorio del repositorio ya existe y, si es así, lo elimina
 if [ -d "$repo_dir" ]; then
