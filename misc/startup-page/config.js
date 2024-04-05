@@ -12,7 +12,7 @@ const CONFIG = {
 
 	// General
 	name: 'gh0stzk',
-	imageBackground: false,
+	imageBackground: true,
 	openInNewTab: true,
 	twelveHourFormat: true,
 

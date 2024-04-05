@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-#  ██████╗ ██╗ ██████╗███████╗    ██╗███╗   ██╗███████╗████████╗ █████╗ ██╗     ██╗     ███████╗██████╗
-#  ██╔══██╗██║██╔════╝██╔════╝    ██║████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██║     ██║     ██╔════╝██╔══██╗
-#  ██████╔╝██║██║     █████╗      ██║██╔██╗ ██║███████╗   ██║   ███████║██║     ██║     █████╗  ██████╔╝
-#  ██╔══██╗██║██║     ██╔══╝      ██║██║╚██╗██║╚════██║   ██║   ██╔══██║██║     ██║     ██╔══╝  ██╔══██╗
-#  ██║  ██║██║╚██████╗███████╗    ██║██║ ╚████║███████║   ██║   ██║  ██║███████╗███████╗███████╗██║  ██║
-#  ╚═╝  ╚═╝╚═╝ ╚═════╝╚══════╝    ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝
 #   Script to install my dotfiles
 #   Author: z0mbi3
 #   url: https://github.com/gh0stzk
@@ -78,8 +72,8 @@ clear
 logo "Installing needed packages.."
 
 dependencias=(alacritty base-devel brightnessctl bspwm dunst feh geany git imagemagick jq \
-			        jgmenu libwebp lsd maim mpc mpd neovim ncmpcpp npm pamixer pacman-contrib \
-			        papirus-icon-theme physlock picom playerctl polybar polkit-gnome python-gobject ranger \
+			        jgmenu libwebp lsd maim mpc mpd neovim ncmpcpp npm stalonetray pacman-contrib \
+			        papirus-icon-theme physlock picom playerctl polybar networkmanager polkit-gnome python-gobject ranger \
 			        rofi rustup sxhkd ttf-inconsolata ttf-jetbrains-mono ttf-jetbrains-mono-nerd \
 			        ttf-joypixels ttf-terminus-nerd ueberzug webp-pixbuf-loader xclip xdg-user-dirs \
 			        xdo xdotool xorg-xdpyinfo xorg-xkill xorg-xprop xorg-xrandr xorg-xsetroot \
@@ -118,7 +112,7 @@ fi
 
 logo "Downloading dotfiles"
 
-repo_url="https://github.com/gh0stzk/dotfiles"
+repo_url="https://github.com/JuanH88/gh0stzk_1080p"
 repo_dir="$HOME/dotfiles"
 
 # Verifica si el directorio del repositorio ya existe y, si es así, lo elimina
@@ -136,18 +130,8 @@ clear
 ########## ---------- Backup files ---------- ##########
 
 logo "Backup files"
-
 printf "If you already have a powerful and super Pro NEOVIM configuration, write 'n' in the next question. If you answer 'y' your neovim configuration will be moved to the backup directory.\n\n"
-
-while true; do
-    read -rp "Do you want to try my nvim config? (y/n): " try_nvim
-    if [[ "$try_nvim" == "y" || "$try_nvim" == "n" ]]; then
-        break
-    else
-        echo "Invalid input. Please enter 'y' or 'n'."
-    fi
-done
-
+read -rp "Do you want to try my nvim config? (y/n): " try_nvim
 printf "\nBackup files will be stored in %s%s%s/.RiceBackup%s \n\n" "${BLD}" "${CRE}" "$HOME" "${CNC}"
 sleep 10
 
@@ -168,7 +152,7 @@ for folder in bspwm alacritty picom rofi eww sxhkd dunst polybar ncmpcpp ranger 
     fi
 done
 
-if [[ $try_nvim == "y" ]]; then
+if [[ $try_nvim == [Yy] ]]; then
         # Download nvim
     if [ -d "$HOME/.config/nvim" ]; then
         if mv "$HOME/.config/nvim" "$backup_folder/nvim_$date" 2>> RiceError.log; then
@@ -230,10 +214,10 @@ printf "Copying files to respective directories..\n"
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
 [ ! -d ~/.local/share ] && mkdir -p ~/.local/share
 
-for dirs in ~/dotfiles/config/*; do
+for dirs in ~/gh0stzk_1080p/config/*; do
     dir_name=$(basename "$dirs")
 # If the directory is nvim and the user doesn't want to try it, skip this loop
-    if [[ $dir_name == "nvim" && $try_nvim != "y" ]]; then
+    if [[ $dir_name == "nvim" && $try_nvim != [Yy] ]]; then
         continue
     fi
     if cp -R "${dirs}" ~/.config/ 2>> RiceError.log; then
@@ -246,7 +230,7 @@ for dirs in ~/dotfiles/config/*; do
 done
 
 for folder in applications asciiart fonts startup-page; do
-    if cp -R ~/dotfiles/misc/$folder ~/.local/share/ 2>> RiceError.log; then
+    if cp -R ~/gh0stzk_1080p/misc/$folder ~/.local/share/ 2>> RiceError.log; then
         printf "%s%s%s %sfolder copied succesfully!%s\n" "${BLD}" "${CYE}" "$folder" "${CGR}" "${CNC}"
         sleep 1
     else
@@ -255,7 +239,7 @@ for folder in applications asciiart fonts startup-page; do
     fi
 done
 
-if cp -R ~/dotfiles/misc/bin ~/.local/ 2>> RiceError.log; then
+if cp -R ~/gh0stzk_1080p/misc/bin ~/.local/ 2>> RiceError.log; then
     printf "%s%sbin %sfolder copied succesfully!%s\n" "${BLD}" "${CYE}" "${CGR}" "${CNC}"
     sleep 1
 else
@@ -263,7 +247,7 @@ else
     sleep 1
 fi
 
-if cp -R ~/dotfiles/misc/firefox/* ~/.mozilla/firefox/*.default-release/ 2>> RiceError.log; then
+if cp -R ~/gh0stzk_1080p/misc/firefox/* ~/.mozilla/firefox/*.default-release/ 2>> RiceError.log; then
     printf "%s%sFirefox theme %scopied succesfully!%s\n" "${BLD}" "${CYE}" "${CGR}" "${CNC}"
     sleep 1
 else
@@ -273,7 +257,7 @@ fi
 
 sed -i "s/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/z0mbi3\/.local\/share\/startup-page\/index.html\")/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/$USER\/.local\/share\/startup-page\/index.html\")/" "$HOME"/.mozilla/firefox/*.default-release/user.js
 sed -i "s/name: 'gh0stzk'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js
-cp -f "$HOME"/dotfiles/home/.zshrc "$HOME"
+cp -f "$HOME"/gh0stzk_1080p/home/.zshrc "$HOME"
 fc-cache -rv >/dev/null 2>&1
 
 printf "\n\n%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"

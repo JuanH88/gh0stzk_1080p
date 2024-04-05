@@ -63,58 +63,68 @@ EOF
 }
 
 # Set compositor configuration
+#-e "s/normal = .*/normal =  { fade = true; shadow = true; }/g" \
 set_picom_config() {
 	sed -i "$HOME"/.config/bspwm/picom.conf \
-		-e "s/normal = .*/normal =  { fade = true; shadow = true; }/g" \
 		-e "s/shadow-color = .*/shadow-color = \"#000000\"/g" \
 		-e "s/corner-radius = .*/corner-radius = 6/g" \
-		-e "s/\".*:class_g = 'Alacritty'\"/\"99:class_g = 'Alacritty'\"/g" \
-		-e "s/\".*:class_g = 'FloaTerm'\"/\"99:class_g = 'FloaTerm'\"/g"
+		-e "s/\".*:class_g = 'Alacritty'\"/\"98:class_g = 'Alacritty'\"/g" \
+		-e "s/\".*:class_g = 'FloaTerm'\"/\"98:class_g = 'FloaTerm'\"/g"
+}
+
+# Set stalonetray config
+set_stalonetray_config() {
+	sed -i "$HOME"/.config/bspwm/stalonetrayrc \
+		-e "s/background .*/background \"#0B0910\"/" \
+		-e "s/vertical .*/vertical true/" \
+		-e "s/geometry .*/geometry 1x1-415+45/" \
+		-e "s/grow_gravity .*/grow_gravity NE/" \
+		-e "s/icon_gravity .*/icon_gravity NE/"
 }
 
 # Set dunst notification daemon config
 set_dunst_config() {
 	sed -i "$HOME"/.config/bspwm/dunstrc \
 		-e "s/transparency = .*/transparency = 4/g" \
-		-e "s/frame_color = .*/frame_color = \"#181616\"/g" \
-		-e "s/separator_color = .*/separator_color = \"#c5c9c5\"/g" \
-		-e "s/font = .*/font = JetBrainsMono NF Medium 9/g" \
-		-e "s/foreground='.*'/foreground='#c5c9c5'/g"
-
+		-e "s/frame_color = .*/frame_color = \"#1f2329\"/g" \
+		-e "s/separator_color = .*/separator_color = \"#3f5273\"/g" \
+		-e "s/font = .*/font = JetBrainsMono Nerd Font Medium 9/g" \
+		-e "s/foreground='.*'/foreground='#3f5273'/g"
+		
 	sed -i '/urgency_low/Q' "$HOME"/.config/bspwm/dunstrc
-	cat >>"$HOME"/.config/bspwm/dunstrc <<-_EOF_
-		[urgency_low]
-		timeout = 3
-		background = "#181616"
-		foreground = "#c5c9c5"
+	cat >> "$HOME"/.config/bspwm/dunstrc <<- _EOF_
+			[urgency_low]
+			timeout = 3
+			background = "#1f2329"
+			foreground = "#b3b3b3"
 
-		[urgency_normal]
-		timeout = 6
-		background = "#181616"
-		foreground = "#c5c9c5"
+			[urgency_normal]
+			timeout = 6
+			background = "#1f2329"
+			foreground = "#b3b3b3"
 
-		[urgency_critical]
-		timeout = 0
-		background = "#181616"
-		foreground = "#c5c9c5"
-	_EOF_
+			[urgency_critical]
+			timeout = 0
+			background = "#1f2329"
+			foreground = "#b3b3b3"
+_EOF_
 }
 
 # Set eww colors
 set_eww_colors() {
-	cat >"$HOME"/.config/bspwm/eww/colors.scss <<EOF
+	cat > "$HOME"/.config/bspwm/eww/colors.scss << EOF
 // Eww colors for Cynthia rice
-\$bg: #181616;
-\$bg-alt: #1c1a1a;
-\$fg: #c5c9c5;
-\$black: #a6a69c;
+\$bg: #1f2329;
+\$bg-alt: #23272e;
+\$fg: #b8bfe5;
+\$black: #b3b3b3;
 \$lightblack: #262831;
-\$red: #c4746e;
-\$blue: #8ba4b0;
-\$cyan: #8ea4a2;
-\$magenta: #a292a3;
-\$green: #8a9a7b;
-\$yellow: #c4b28a;
+\$red: #735771;
+\$blue: #465b80;
+\$cyan: #385a73;
+\$magenta: #533969;
+\$green: #3f6566;
+\$yellow: #807476;
 \$archicon: #0f94d2;
 EOF
 }
@@ -122,23 +132,22 @@ EOF
 # Set jgmenu colors for Cynthia
 set_jgmenu_colors() {
 	sed -i "$HOME"/.config/bspwm/jgmenurc \
-		-e 's/color_menu_bg = .*/color_menu_bg = #181616/' \
-		-e 's/color_norm_fg = .*/color_norm_fg = #c5c9c5/' \
-		-e 's/color_sel_bg = .*/color_sel_bg = #8a9a7b/' \
-		-e 's/color_sel_fg = .*/color_sel_fg = #181616/' \
-		-e 's/color_sep_fg = .*/color_sep_fg = #8a9a7b/'
+		-e 's/color_menu_bg = .*/color_menu_bg = #1f2329/' \
+		-e 's/color_norm_fg = .*/color_norm_fg = #b8bfe5/' \
+		-e 's/color_sel_bg = .*/color_sel_bg = #23272e/' \
+		-e 's/color_sel_fg = .*/color_sel_fg = #b8bfe5/' \
+		-e 's/color_sep_fg = .*/color_sep_fg = #b3b3b3/'
 }
 
 # Set Rofi launcher config
-set_launcher_config() {
+set_launcher_config () {
 	sed -i "$HOME/.config/bspwm/scripts/Launcher.rasi" \
-		-e '22s/\(font: \).*/\1"Terminess Nerd Font Mono Bold 10";/' \
-		-e 's/\(background: \).*/\1#181616;/' \
-		-e 's/\(background-alt: \).*/\1#181616E0;/' \
-		-e 's/\(foreground: \).*/\1#c5c9c5;/' \
-		-e 's/\(selected: \).*/\1#8ba4b0;/' \
+		-e 's/\(font: \).*/\1"Terminess Nerd Font Mono Bold 10";/' \
+		-e 's/\(background: \).*/\1#1f2329;/' \
+		-e 's/\(background-alt: \).*/\1#1f2329E0;/' \
+		-e 's/\(foreground: \).*/\1#b8bfe5;/' \
+		-e 's/\(selected: \).*/\1#3f5273;/' \
 		-e "s/rices\/[[:alnum:]\-]*/rices\/${RICETHEME}/g"
-
 	# NetworkManager launcher
 	sed -i "$HOME/.config/bspwm/scripts/NetManagerDM.rasi" \
 		-e '12s/\(background: \).*/\1#181616;/' \
@@ -147,30 +156,26 @@ set_launcher_config() {
 		-e '15s/\(selected: \).*/\1#8ba4b0;/' \
 		-e '16s/\(active: \).*/\1#8a9a7b;/' \
 		-e '17s/\(urgent: \).*/\1#c4746e;/'
-
-	# WallSelect menu colors
-	sed -i "$HOME/.config/bspwm/scripts/WallSelect.rasi" \
-		-e 's/\(main-bg: \).*/\1#181616E6;/' \
-		-e 's/\(main-fg: \).*/\1#c5c9c5;/' \
-		-e 's/\(select-bg: \).*/\1#8ea4a2;/' \
-		-e 's/\(select-fg: \).*/\1#181616;/'
 }
 
 # Launch the bar
 launch_bars() {
 
 	for mon in $(polybar --list-monitors | cut -d":" -f1); do
-		(MONITOR=$mon polybar -q cyn-bar -c "${rice_dir}"/config.ini) &
-		(MONITOR=$mon polybar -q cyn-bar2 -c "${rice_dir}"/config.ini) &
+		(MONITOR=$mon polybar -q cyn-bar -c ${rice_dir}/config.ini)&
+		(MONITOR=$mon polybar -q cyn-bar2 -c ${rice_dir}/config.ini)&
 	done
 
 }
+
+
 
 ### ---------- Apply Configurations ---------- ###
 
 set_bspwm_config
 set_term_config
 set_picom_config
+set_stalonetray_config
 launch_bars
 set_dunst_config
 set_eww_colors

@@ -19,11 +19,11 @@ configuration {
 //----- Global Properties -----//
 
 * {
-font: "JetBrainsMono NF Bold 9";
-background: #1A1B26;
-background-alt: #1A1B26E0;
-foreground: #c0caf5;
-selected: #7aa2f7;
+font: "JetBrainsMono Nerd Font Bold 9";
+background: #f5eee6;
+background-alt: #f5eee6E0;
+foreground: #151515;
+selected: #67d4f1;
 }
 
 //----- Main Window -----//
@@ -34,7 +34,8 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       550px;
+    width:                       30%;
+    height:                      50%;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -57,10 +58,10 @@ mainbox {
 
 listbox {
     spacing:                     10px;
-    padding:                     15px 15px;
+    padding:                     0px 0px 0px 0px;
     background-color:            transparent;
     orientation:                 vertical;
-    children:                    [ "listview" ];
+    children:                    [ "message", "listview" ];
 }
 
 //----- Inputbar -----//
@@ -68,9 +69,9 @@ listbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     50px 100px;
+    padding:                     40px 40px 45px;
     background-color:            transparent;
-    background-image:            url("~/.config/bspwm/rices/emilia/rofi.webp", width);
+    background-image:            url("~/.config/bspwm/rices/andrea/rofi.webp", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];
@@ -78,9 +79,8 @@ inputbar {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    font:                        "JetBrainsMono NF Bold 9";
-    str:                         "";
-    padding:                     12px 19px 0 15px;
+    str:                         "";
+    padding:                     12px 15px;
     border-radius:               8px;
     background-color:            @background-alt;
     text-color:                  inherit;
@@ -88,13 +88,17 @@ textbox-prompt-colon {
 entry {
     enabled:                     true;
     expand:                      true;
-    padding:                     12px 12px;
+    padding:                     12px 16px;
     border-radius:               8px;
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "Search";
     placeholder-color:           inherit;
+}
+dummy {
+    expand:                      true;
+    background-color:            transparent;
 }
 
 //----- Listview -----//
@@ -111,7 +115,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     3px;
+    spacing:                     1px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
@@ -148,4 +152,24 @@ element-text {
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.0;
+}
+
+//----- Message -----//
+
+message {
+    background-color:            transparent;
+}
+textbox {
+    padding:                     12px;
+    border-radius:               5px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+error-message {
+    padding:                     12px;
+    border-radius:               5px;
+    background-color:            @background;
+    text-color:                  @foreground;
 }

@@ -230,7 +230,7 @@
 (defwidget temp [] 
   (system_progress
     :css "temp"
-    :tip "Cpu temperature ${temp}°C"
+    :tip "CPU temperature ${temp}°C"
     :data temp
     :icon ""
   )

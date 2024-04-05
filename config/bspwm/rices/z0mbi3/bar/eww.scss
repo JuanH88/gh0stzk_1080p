@@ -74,11 +74,11 @@ $archlogo: #0f94d2;
 }
 
 .bar-updates-text {
-  font-family: "JetBrainsMono NF";
+  font-family: "JetBrainsMono Nerd Font Bold";
   font-size: 14px;
   font-weight: Bold;
   color: #8ea6c4;
-  margin: 0.4rem 0 0.2rem 0.2rem;
+  margin: .4rem 0 .2rem .2rem;
 }
 
 scale trough {
@@ -97,7 +97,7 @@ scale trough {
 
 // Clock
 .time {
-  font-family: JetBrainsMono NF;
+  font-family: JetBrainsMono Nerd Font;
   font-weight: bold;
   font-size: 1.2em;
   background-color: $black;
@@ -128,5 +128,5 @@ scale trough {
   background-size: 22px;
   min-height: 22px;
   min-width: 7px;
-  margin: 0rem 0rem 0.5rem 9px;
+  margin: 0rem 0rem .5rem 9px;
 }

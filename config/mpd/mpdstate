@@ -1,1 +1,114 @@
-
+sw_volume: 100
+audio_device_state:1:pulse audio
+audio_device_state:1:my_fifo
+state: pause
+current: 8
+time: 192.440000
+random: 1
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Lo Mejor del Cuarteto/Apocalipsis_Zombi.mp3
+1:Lo Mejor del Cuarteto/Invisible.mp3
+2:Lo Mejor del Cuarteto/El_Innombrable.mp3
+3:Lo Mejor del Cuarteto/Calma_Vladimir.mp3
+4:Lo Mejor del Cuarteto/Gaucho_Power.mp3
+5:Lo Mejor del Cuarteto/El_Rey_y_el_As.mp3
+6:Lo Mejor del Cuarteto/Bipolar.mp3
+7:Lo Mejor del Cuarteto/El_hijo_de_Hern_ndez.mp3
+8:Lo Mejor del Cuarteto/Miguel_gritar.mp3
+9:Lo Mejor del Cuarteto/Mi_lista_negra.mp3
+10:Lo Mejor del Cuarteto/Me_amo.mp3
+11:Lo Mejor del Cuarteto/Breve_descripci_n_de_mi_persona.mp3
+12:Lo Mejor del Cuarteto/Ya_Te_Vas_a_Mejorar.mp3
+13:Lo Mejor del Cuarteto/Monei.mp3
+14:Lo Mejor del Cuarteto/No_Quiero_Ser_Normal.mp3
+15:Lo Mejor del Cuarteto/C_mo_pasa_el_tiempo.mp3
+16:Lo Mejor del Cuarteto/El_aprendiz.mp3
+17:Lo Mejor del Cuarteto/No_llora.mp3
+18:Lo Mejor del Cuarteto/De_hielo.mp3
+19:Lo Mejor del Cuarteto/Roberto.mp3
+20:Lo Mejor del Cuarteto/21_de_septiembre.mp3
+21:Lo Mejor del Cuarteto/Habla_tu_espejo.mp3
+22:Lo Mejor del Cuarteto/Caminamos.mp3
+23:Lo Mejor del Cuarteto/Un_problema_menos.mp3
+24:Lo Mejor del Cuarteto/Mario_Neta.mp3
+25:Lo Mejor del Cuarteto/Punta_Cana.mp3
+26:Lo Mejor del Cuarteto/An_nimo.mp3
+27:Lo Mejor del Cuarteto/Hombre_Con_Alas.mp3
+28:Lo Mejor del Cuarteto/Contrapunto_para_Humano_y_Computadora.mp3
+29:Lo Mejor del Cuarteto/Flan.mp3
+30:Lo Mejor del Cuarteto/Rorschach.mp3
+31:Lo Mejor del Cuarteto/Frankenstein_Posmo.mp3
+32:Lo Mejor del Cuarteto/Maldito_Show.mp3
+33:Lo Mejor del Cuarteto/Fiesta_en_lo_del_Dr__Hermes.mp3
+34:Lo Mejor del Cuarteto/Cintur_n_Gris.mp3
+35:Lo Mejor del Cuarteto/Algo_mejor_que_hacer.mp3
+36:Lo Mejor del Cuarteto/Cuando_sea_grande.mp3
+37:Lo Mejor del Cuarteto/S_lo_estoy_sobreviviendo.mp3
+38:Lo Mejor del Cuarteto/Buen_d_a_Benito.mp3
+39:Lo Mejor del Cuarteto/El_lado_soleado_de_la_calle.mp3
+40:Lo Mejor del Cuarteto/Lo_malo_de_ser_bueno.mp3
+41:Lo Mejor del Cuarteto/Enamorado_tuyo.mp3
+42:Lo Mejor del Cuarteto/Vida_ingrata.mp3
+43:Lo Mejor del Cuarteto/Insaciable.mp3
+44:Lo Mejor del Cuarteto/Nada_Es_Gratis_en_la_Vida.mp3
+45:Lo Mejor del Cuarteto/Hoy_Estoy_Raro.mp3
+46:Lo Mejor del Cuarteto/As__Soy_Yo.mp3
+47:Lo Mejor del Cuarteto/Yendo_a_la_Casa_de_Dami_n.mp3
+48:Lo Mejor del Cuarteto/Ya_No_S__Que_Hacer_Conmigo.mp3
+49:Lo Mejor del Cuarteto/Invierno_del_92.mp3
+50:Mix Indie/_Qu__Nos_Pas__.mp3
+51:Mix Indie/Br_jula.mp3
+52:Mix Indie/Me_Quitas_El_Aire.mp3
+53:Mix Indie/Aroma_A_Nostalgia.mp3
+54:Mix Indie/Fuma.mp3
+55:Mix Indie/Una_Nube_Cuelga_Sobre_M_.mp3
+56:Mix Indie/Besos__Lim_n_y_Miel.mp3
+57:Mix Indie/Romance_en_Re_sostenido.mp3
+58:Mix Indie/Los_Imanes.mp3
+59:Mix Indie/Lo_que_Quieras_de_M_.mp3
+60:Mix Indie/Todo_Bien.mp3
+61:Mix Indie/S__Po_.mp3
+62:Mix Indie/Humanos_Como_T_.mp3
+63:Mix Indie/Espiral.mp3
+64:Mix Indie/Qu_mica.mp3
+65:Mix Indie/Como_T_.mp3
+66:Mix Indie/Contracorriente.mp3
+67:Mix Indie/Ansiedad.mp3
+68:Mix Indie/Infinitos.mp3
+69:Mix Indie/Mariana.mp3
+70:Mix Indie/Red_Eyes.mp3
+71:Mix Indie/Mama__Tv_Gluten_Free.mp3
+72:Mix Indie/Vida_En_El_Espejo.mp3
+73:Mix Indie/Cachito_De_Galaxia.mp3
+74:Mix Indie/Verde_Pastel.mp3
+75:Mix Indie/Manual_de_una_P_rdida.mp3
+76:Mix Indie/Respiro__Cap__8_.mp3
+77:Mix Indie/Murci_lago.mp3
+78:Mix Indie/Rinc_n_Yucateco.mp3
+79:Mix Indie/Luna_-_En_Vivo.mp3
+80:Mix Indie/Qui_micos.mp3
+81:Mix Indie/__.mp3
+82:Mix Indie/Todo_Cuenta.mp3
+83:Mix Indie/100_A_os.mp3
+84:Mix Indie/Hiroshima.mp3
+85:Mix Indie/La_Magia.mp3
+86:Mix Indie/Te_Alejas_M_s_De_M_.mp3
+87:Mix Indie/Pegado_a_Tus_Huesos.mp3
+88:Mix Indie/Como_T___Magic_Music_Box_.mp3
+89:Mix Indie/Karmadame.mp3
+90:Mix Indie/Volamos.mp3
+91:Mix Indie/Buen_Viaje.mp3
+92:Mix Indie/Cuernavaca.mp3
+93:Mix Indie/Pintura.mp3
+94:Mix Indie/Amiga_-_Bonus_Track.mp3
+95:Mix Indie/Todo_Mal.mp3
+96:Mix Indie/Ser_Parte.mp3
+97:Mix Indie/_nicos.mp3
+98:Mix Indie/Nunca_Me_Dejes.mp3
+playlist_end

@@ -13,8 +13,8 @@
 # Set bspwm configuration for Melissa
 set_bspwm_config() {
 	bspc config border_width 0
-	bspc config top_padding 37
-	bspc config bottom_padding 37
+	bspc config top_padding 42
+	bspc config bottom_padding 40
 	bspc config left_padding 2
 	bspc config right_padding 2
 	bspc config normal_border_color "#e5e9f0"
@@ -63,13 +63,23 @@ EOF
 }
 
 # Set compositor configuration
+#-e "s/normal = .*/normal =  { fade = true; shadow = true; }/g" \
 set_picom_config() {
 	sed -i "$HOME"/.config/bspwm/picom.conf \
-		-e "s/normal = .*/normal =  { fade = true; shadow = true; }/g" \
 		-e "s/shadow-color = .*/shadow-color = \"#000000\"/g" \
 		-e "s/corner-radius = .*/corner-radius = 6/g" \
-		-e "s/\".*:class_g = 'Alacritty'\"/\"99:class_g = 'Alacritty'\"/g" \
-		-e "s/\".*:class_g = 'FloaTerm'\"/\"99:class_g = 'FloaTerm'\"/g"
+		-e "s/\".*:class_g = 'Alacritty'\"/\"98:class_g = 'Alacritty'\"/g" \
+		-e "s/\".*:class_g = 'FloaTerm'\"/\"98:class_g = 'FloaTerm'\"/g"
+}
+
+# Set stalonetray config
+set_stalonetray_config() {
+	sed -i "$HOME"/.config/bspwm/stalonetrayrc \
+		-e "s/background .*/background \"#4C566A\"/" \
+		-e "s/vertical .*/vertical true/" \
+		-e "s/geometry .*/geometry 1x1-1187+838/" \
+		-e "s/grow_gravity .*/grow_gravity SE/" \
+		-e "s/icon_gravity .*/icon_gravity SE/"
 }
 
 # Set dunst notification daemon config
@@ -78,31 +88,31 @@ set_dunst_config() {
 		-e "s/transparency = .*/transparency = 4/g" \
 		-e "s/frame_color = .*/frame_color = \"#2e3440\"/g" \
 		-e "s/separator_color = .*/separator_color = \"#a3be8c\"/g" \
-		-e "s/font = .*/font = JetBrainsMono NF Medium 9/g" \
+		-e "s/font = .*/font = JetBrainsMono Nerd Font Medium 9/g" \
 		-e "s/foreground='.*'/foreground='#81a1c1'/g"
-
+		
 	sed -i '/urgency_low/Q' "$HOME"/.config/bspwm/dunstrc
-	cat >>"$HOME"/.config/bspwm/dunstrc <<-_EOF_
-		[urgency_low]
-		timeout = 3
-		background = "#2e3440"
-		foreground = "#d8dee9"
+	cat >> "$HOME"/.config/bspwm/dunstrc <<- _EOF_
+			[urgency_low]
+			timeout = 3
+			background = "#2e3440"
+			foreground = "#d8dee9"
 
-		[urgency_normal]
-		timeout = 6
-		background = "#2e3440"
-		foreground = "#d8dee9"
+			[urgency_normal]
+			timeout = 6
+			background = "#2e3440"
+			foreground = "#d8dee9"
 
-		[urgency_critical]
-		timeout = 0
-		background = "#2e3440"
-		foreground = "#d8dee9"
-	_EOF_
+			[urgency_critical]
+			timeout = 0
+			background = "#2e3440"
+			foreground = "#d8dee9"
+_EOF_
 }
 
 # Set eww colors
 set_eww_colors() {
-	cat >"$HOME"/.config/bspwm/eww/colors.scss <<EOF
+	cat > "$HOME"/.config/bspwm/eww/colors.scss << EOF
 // Eww colors for Melissa rice
 \$bg: #2e3440;
 \$bg-alt: #353C4A;
@@ -130,15 +140,14 @@ set_jgmenu_colors() {
 }
 
 # Set Rofi launcher config
-set_launcher_config() {
+set_launcher_config () {
 	sed -i "$HOME/.config/bspwm/scripts/Launcher.rasi" \
-		-e '22s/\(font: \).*/\1"Terminess Nerd Font Mono Bold 10";/' \
+		-e 's/\(font: \).*/\1"Terminess Nerd Font Mono Bold 10";/' \
 		-e 's/\(background: \).*/\1#2e3440;/' \
 		-e 's/\(background-alt: \).*/\1#2e3440E0;/' \
 		-e 's/\(foreground: \).*/\1#e5e9f0;/' \
 		-e 's/\(selected: \).*/\1#88c0d0;/' \
 		-e "s/rices\/[[:alnum:]\-]*/rices\/${RICETHEME}/g"
-
 	# NetworkManager launcher
 	sed -i "$HOME/.config/bspwm/scripts/NetManagerDM.rasi" \
 		-e '12s/\(background: \).*/\1#2e3440;/' \
@@ -147,30 +156,26 @@ set_launcher_config() {
 		-e '15s/\(selected: \).*/\1#88c0d0;/' \
 		-e '16s/\(active: \).*/\1#a3be8c;/' \
 		-e '17s/\(urgent: \).*/\1#bf616a;/'
-
-	# WallSelect menu colors
-	sed -i "$HOME/.config/bspwm/scripts/WallSelect.rasi" \
-		-e 's/\(main-bg: \).*/\1#2e3440E6;/' \
-		-e 's/\(main-fg: \).*/\1#e5e9f0;/' \
-		-e 's/\(select-bg: \).*/\1#88c0d0;/' \
-		-e 's/\(select-fg: \).*/\1#2e3440;/'
 }
 
 # Launch the bar
 launch_bars() {
-
+	
 	for mon in $(polybar --list-monitors | cut -d":" -f1); do
-		(MONITOR=$mon polybar -q mel-bar -c "${rice_dir}"/config.ini) &
-		(MONITOR=$mon polybar -q mel2-bar -c "${rice_dir}"/config.ini) &
+		(MONITOR=$mon polybar -q mel-bar -c ${rice_dir}/config.ini)&
+		(MONITOR=$mon polybar -q mel2-bar -c ${rice_dir}/config.ini)&
 	done
 
 }
+
+
 
 ### ---------- Apply Configurations ---------- ###
 
 set_bspwm_config
 set_term_config
 set_picom_config
+set_stalonetray_config
 launch_bars
 set_dunst_config
 set_eww_colors

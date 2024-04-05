@@ -1,94 +1,73 @@
-# BSPWM Temas | Entorno completo con bspwm
+# BSPWM | Polybar | Coleccion de temas
 
-<div align = center>
-   
-![bspwm-dotfiles](https://github.com/gh0stzk/dotfiles/assets/67278339/0340846a-74d4-4a43-9430-142b0832738d)
+## 🌿 Informacion
+Mi coleccion de 12 temas para BSPWM y Polybar. Con menu para seleccionar los temas.
 
-
-&ensp;[<kbd> <br> Instalacion <br> </kbd>](#-el-setup)&ensp;
-&ensp;[<kbd> <br> Caracteristicas <br> </kbd>](#-caracteristicas)&ensp;
-&ensp;[<kbd> <br> Temas <br> </kbd>](#-los-temas)&ensp;
-&ensp;[<kbd> <br> Atajos de teclado <br> </kbd>](#atajos-de-teclado-utiles-que-deberias-saber)&ensp;
-&ensp;[<kbd> <br> Wiki <br> </kbd>](https://github.com/gh0stzk/dotfiles/wiki)&ensp;
-<br><br><br></div>
+## :book: Wiki
+Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), deberías darle una lectura. Si es tu primera vez con un WM tal vez te interese leer [Primeros pasos despues de instalar los dotfiles](https://github.com/gh0stzk/dotfiles/wiki/Firsts-steps-after-installing) ó tal vez leer las [pregumtas y respuestas](https://github.com/gh0stzk/dotfiles/wiki/Questions---Answers).
 
 https://user-images.githubusercontent.com/67278339/211363959-9182ecb7-e56e-4598-afed-f352c5d2979e.mp4
  
+## Información
+<img src="https://user-images.githubusercontent.com/67278339/221605474-21d65156-0cf7-485c-bd1a-40792c37817e.png" alt="Linux Fetch" align="right" width="600">
+
+|Distro|[Arch](https://archlinux.org/)|
+|:---:|:---:|
+|WM|[BSPWM](https://github.com/baskerville/bspwm)|
+|Bar|[Polybar](https://github.com/polybar/polybar)|
+|Menu|[Rofi](https://github.com/davatorium/rofi)|
+|Compositor|[Picom](https://archlinux.org/packages/community/x86_64/picom/)|
+|Terminal|[Alacritty](https://github.com/alacritty/alacritty)|
+|Widgets|[ElKowars wacky widgets ](https://github.com/elkowar/eww)|
+|Music/Player|[mpd](https://archlinux.org/packages/extra/x86_64/mpd/)-[ncmpcpp](https://archlinux.org/packages/community/x86_64/ncmpcpp/)|
+|File Manager|[Thunar](https://archlinux.org/packages/extra/x86_64/thunar/)|
+|Shell|[Zsh](https://archlinux.org/packages/extra/x86_64/zsh/)|
+|Aur Helper|[Paru](https://github.com/Morganamilo/paru)|
+
 <br>
 
 ## 🚀 Caracteristicas
-<img src="https://user-images.githubusercontent.com/67278339/221605474-21d65156-0cf7-485c-bd1a-40792c37817e.png" alt="Linux Fetch" align="right" width="450">
+<img src="https://user-images.githubusercontent.com/67278339/221426400-6029bdd7-f183-4860-9ade-a5fe35d2251a.png" alt="Rice Menu" align="right" width="400px">
 
-**Experimenta la Magia de la Personalización con los dotfiles de gh0stzk para bspwm**
+* **Cambia el tema al momento:** 12 diferentes temas!.
 
-<sup>¡Bienvenido al mundo de la personalización sin límites! Los dotfiles de gh0stzk para bspwm ofrecen una experiencia única y emocionante con 15 temas distintos, cada uno con esquemas de colores, estilo y personalidad cautivadora. Sumérgete en un viaje visual que transformará tu entorno de trabajo de una manera impresionante.</sup>
+* **Menu de temas:** <code>Alt + Space bar</code> para abrir menu.
 
-**Cambia de temas al instante**
+* **Wallpapers al azar:**  Cada vez que cambias de tema o reinicias bspwm <code>super + alt + r</code> tendras un wallpaper diferente dependiendo el tema en el que estes.
 
-<sup>Con el menú personalizado basado en rofi launcher, cambiar entre los 15 temas es tan fácil como un clic. Disfruta de la versatilidad de estilos y esquemas de colores al momento.</sup>
+* **Super + Alt + w** Cambia entre los diferentes wallpapers que tiene el tema.
 
-**Coherencia en Todo el Sistema**
+* **Mostrar / Ocultar barra:** Podras ocultar y volver a mostrar la barra ( Polybar y EWW )
 
-<sup>Cada tema no solo cambia la apariencia de bspwm, sino que también transforma al instante el esquema de colores en la terminal alacritty, widgets eww, barras polybar, notificaciones y más. La armonía visual está garantizada en todos los rincones de tu sistema.</sup>
+* **Cambia la transparencia:** 
+Aumenta o disminuye la transparencia de la ventana de trabajo en la que estes.
 
-**Widgets Eww Únicos**
+**Y mas..**
 
-<sup>Descubre 4 widgets eww únicos, que incluyen un calendario, menú de apagado, reproductor de música y tarjeta de usuario. Estos widgets no solo son funcionales, sino que también se adaptan instantáneamente al esquema de colores del tema que elijas.</sup>
-
-**Personalización Completa**
-
-<sup>Menú de clic derecho elegante hecho con Jgmenu, que también se sincroniza con los temas para una coherencia visual impecable. Además, 10 barras hechas con polybar y 2 con widgets eww ofrecen una experiencia de usuario completamente personalizable.</sup>
-
-**Variedad de Fondos de Pantalla**
-
-<sup>Cada inicio de sesión te sorprenderá con un fondo de pantalla al azar seleccionado específicamente para el tema en uso. Pero si la sorpresa no es lo tuyo, nuestro menú de fondos de pantalla te permite elegir entre más de 5 fondos de pantalla exclusivos para cada tema.</sup>
-
-**Composición Visual con Picom**
-
-<sup>Experimenta la belleza sin esfuerzo con picom como compositor, proporcionando una estética agradable sin sacrificar rendimiento. Disfruta de una experiencia de trabajo sin complicaciones con efectos visuales agradables. Una configuracion balanceada entre rendimiento y estética.
-Ajusta la transparencia de tus ventanas abiertas con una simple combinación de teclas. Controla la apariencia de tu escritorio para que se adapte perfectamente a tu estado de ánimo y estilo.</sup>
-
-**Funcionalidades Adicionales:**
-
-- **Control de Música Local:**
-
-  <sup>Administra tu música local desde el módulo polybar y el reproductor ncmpcpp, ambos con un diseño único que se ajusta al esquema de colores del tema.</sup>
-- **Flexibilidad:**
-
-  <sup>Esconde y muestra la barra polybar y los widgets eww según tus necesidades, brindándote un control completo sobre tu espacio de trabajo.</sup>
-
-- **Scratchpad Funcional:**
-  
-  <sup>Accede a la funcionalidad scratchpad, una ventana de terminal que puedes mostrar o esconder según tus tareas, evitando que ocupe espacio innecesario en tu escritorio.</sup>
-
-¡Transforma tu experiencia de usuario con los dotfiles de gh0stzk para bspwm! Descarga ahora y da vida a tu escritorio con estilo y personalidad.
-
-## :book: Wiki
-Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), deberías darle una lectura. Si es tu primera vez con un WM tal vez te interese leer [Primeros pasos despues de instalar los dotfiles](https://github.com/gh0stzk/dotfiles/wiki/Firsts-steps-after-installing) ó tal vez leer las [pregumtas y respuestas](https://github.com/gh0stzk/dotfiles/wiki/Questions---Answers) [Atajos de teclado](https://github.com/gh0stzk/dotfiles/wiki/Keyboard-Shortcuts)[Tema Firefox](https://github.com/gh0stzk/dotfiles/wiki/Firefox-Theme).
-
-<br>
-
-> [!CAUTION]
-> ⚠️⚠️⚠️ Esta configuración fue hecha en una resolución **1600x900** con **96** DPI y **1** monitor.
-> Algunas cosas prodrian romperse en una resolucion menor o mayor, pero igual funcionara!! ⚠️⚠️⚠️
-
-<br>
+<table align="center">
+   <tr>
+      <th align="center">
+         <sup><sub>:warning: Cuidado!! :warning:</sub></sup>
+      </th>
+   </tr>
+   <tr>
+      <td align="center">
+      
+      
+      
+     MIS CONFIGURACIONES LAS HICE CON UNA RESOLUCION 1600x900 CON 96 DPI! 1 MONITOR
+     ALGUNAS COSAS TAL VEZ SE ROMPAN CON RESOLUCIONES DIFERENTES
+     PERO IGUAL FUNCIONARA!
+     
+   </tr>
+   </table>
 
 ## 🎨 Los Temas
 
-| :tshirt: Menu de Temas |
-|:-:|
-|![Screenshot-11_12_2023-01-06-03](https://github.com/gh0stzk/dotfiles/assets/67278339/b11b5c58-b9ec-446b-8980-4f77bebb3432)|
-
-| :traffic_light: Menu Wallpapers |
-|:-:|
-|![Screenshot-11_12_2023-01-03-00](https://github.com/gh0stzk/dotfiles/assets/67278339/0746df0f-6a56-44d6-a899-7bdbc0f1a593)|
-
-
 ### 🌸Emilia:
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/8f56d12d-4efa-4024-99e1-4679591b45ca" alt="Emilia Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221425369-13143094-17a5-4413-8111-f39e0e6d8d21.png" alt="Emilia Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221425420-4198afbb-fd7a-41a1-96f2-42c2c715f076.png" alt="Emilia Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Emilia</b></summary>
@@ -101,8 +80,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸Jan
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/6e4959b7-6d07-42c6-8ede-2f3c16094ad2" alt="Jan Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221425541-54cdbc53-c3b3-46a6-ad3f-ede996eabc6a.png" alt="Jan Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221425550-05f6362b-0a4a-48c0-a87d-044cc38af8e6.png" alt="Jan Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Jan</b></summary>
@@ -115,8 +94,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸Aline
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/5ae48d8d-ebcb-4fd5-9c80-78fc325a7a38" alt="Aline Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221425672-0da23a62-bb1a-4409-b18d-756cf479f517.png" alt="Aline Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221425682-e5676155-1bbc-47a5-ba15-307513c44d06.png" alt="Aline Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Aline</b></summary>
@@ -129,8 +108,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸Andrea
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/1bfd302f-0e3f-4973-975b-56c78d6140ee" alt="Andrea Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221425744-9144328f-3993-4ed8-91b9-a8522ae8460a.png" alt="Andrea Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221425748-4a6ab441-886a-4400-b9df-5fef2a6cfb23.png" alt="Andrea Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Andrea</b></summary>
@@ -143,8 +122,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸Cynthia
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/5df45139-1d73-4f5f-8e8d-a417c86bfb96" alt="Cynthia Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221425848-a28fda79-9b3f-4cba-9e56-ea4759cd56e2.png" alt="Cynthia Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221425853-ce5af1fe-f03d-48cc-a4d3-445adbe3e566.png" alt="Cynthia Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Cynthia</b></summary>
@@ -157,8 +136,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸Isabel
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/f2a0002f-3370-4361-9301-08abadcad600" alt="Isabel Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221425911-51a5f5af-ef6d-421a-83f8-ad10ad73903e.png" alt="Isabel Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221425915-55c6b711-9456-4b60-a1a2-8a986e45e2c4.png" alt="Isabel Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Isabel</b></summary>
@@ -171,8 +150,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸Silvia
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/616c2d93-fabf-41c2-9ab8-9c7b4d6a2e35" alt="Silvia Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221425959-3ce172d2-6046-482d-a0d0-fbed7b6c6528.png" alt="Silvia Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221425966-3e5e9db1-4e60-4b21-8c00-8235e7dde733.png" alt="Silvia Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Silvia</b></summary>
@@ -185,8 +164,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸Melissa
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/a63e250d-c5d1-4360-afd7-cf64bf55a0fc" alt="Melissa Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221426005-b23e3f99-9d1c-469f-9e5d-741f9839b77a.png" alt="Melissa Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221426007-81869495-d20f-4c55-b036-42ced5b4b5a1.png" alt="Melissa Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Melissa</b></summary>
@@ -199,8 +178,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸Pamela
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/f9e85839-53c9-4e15-a800-8a2f7ca40691" alt="Pamela Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221426074-0871239b-1e21-4a12-837d-2320b785bda9.png" alt="Pamela Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221426076-9aae13b0-0f1e-430a-b53a-80d0d9cfa2a4.png" alt="Pamela Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Pamela</b></summary>
@@ -213,8 +192,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸Cristina
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/e14c6777-25f6-4621-a88b-4fda71dbcc7f" alt="Cristina Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221426114-5f088fd6-1b45-4ea2-a08c-3a55ab04deb5.png" alt="Cristina Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221426116-0c247a00-c870-4120-9b46-fbd4a1913af2.png" alt="Cristina Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Cristina</b></summary>
@@ -227,8 +206,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸Karla
 **(Zombie-Night Color Scheme)**
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/5455afdf-cc2f-4a8c-8fcd-526c59066d50" alt="Karla Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/239428839-c30eba84-5c18-4397-9e92-3d8735b46d7b.png" alt="Karla Rice" align="center" width="600px">|<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/67278339/239429213-2d3d62ae-3c7b-4c7a-b50a-637517145c7a.png" alt="Karla Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en Karla</b></summary>
@@ -242,8 +221,8 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 ### 🌸z0mbi3:
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/ff65caa8-6a15-4873-bf05-edf89ac0985d" alt="z0mbi3 Rice" align="center">|
-|---|
+|<img src="https://user-images.githubusercontent.com/67278339/221426212-d019956b-08c5-4c09-8375-bb7a377f5024.png" alt="z0mbi3 Rice" align="center" width="600px">|<img src="https://user-images.githubusercontent.com/67278339/221426218-49131fb7-e750-4bee-94a3-f26397760ec8.png" alt="z0mbi3 Rice" align="center" width="600px">|
+|---|---|
 
 <details>
 <summary><b>Extra wallpapers en z0mbi3</b></summary>
@@ -254,73 +233,36 @@ Ya comencé a escribir la [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), 
 
 </details>
 
-### 🌸Brenda:
+## Temas NEOVIM
+Actualmente el tema de neovim es OneDark, pero el fondo se adaptara a los colores del tema en el que estes. Esta configurado en Lua, con pocos plugins para mantenerlo simple, pero siempre puedes agregar los tuyos.
+- Lualine
+- Nvim-Tree
+- Colorizer
+- Devicons
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/22e37944-5aad-46bf-8934-3a57d1718ed2" alt="Brenda Rice" align="center">|
-|---|
+El manejador de plugins es Packer.
 
-<details>
-<summary><b>Extra wallpapers en Brenda</b></summary>
-
-|<img src="config/bspwm/rices/brenda/walls/wall-01.webp" alt="Brenda Rice" align="center" width="150px">|<img src="config/bspwm/rices/brenda/walls/wall-02.webp" alt="Brenda Rice" align="center" width="150px">|<img src="config/bspwm/rices/brenda/walls/wall-04.webp" alt="Brenda Rice" align="center" width="150px">|
-|:-:|:-:|:-:|
-<img src="config/bspwm/rices/brenda/walls/wall-05.webp" alt="Brenda Rice" align="center" width="150px">|<img src="config/bspwm/rices/brenda/walls/wall-06.webp" alt="Brenda Rice" align="center" width="150px">|<img src="config/bspwm/rices/brenda/walls/wall-07.webp" alt="Brenda Rice" align="center" width="150px">|
-
-</details>
-
-### 🌸Daniela:
-
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/f296d6b4-9c8a-49ae-bf63-d82e5105f122" alt="Daniela Rice" align="center">|
-|---|
-
-<details>
-<summary><b>Extra wallpapers en Daniela</b></summary>
-
-|<img src="config/bspwm/rices/daniela/walls/wall-01.webp" alt="Daniela Rice" align="center" width="150px">|<img src="config/bspwm/rices/daniela/walls/wall-03.webp" alt="Daniela Rice" align="center" width="150px">|<img src="config/bspwm/rices/daniela/walls/wall-04.webp" alt="Daniela Rice" align="center" width="150px">|
-|:-:|:-:|:-:|
-<img src="config/bspwm/rices/daniela/walls/wall-05.webp" alt="Daniela Rice" align="center" width="150px">|<img src="config/bspwm/rices/daniela/walls/wall-06.webp" alt="Daniela Rice" align="center" width="150px">|<img src="config/bspwm/rices/daniela/walls/wall-07.webp" alt="Daniela Rice" align="center" width="150px">|
-
-</details>
-
-### 🌸Marisol:
-
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/d11d20c5-1edc-44c8-901b-a4103a139617" alt="Daniela Rice" align="center">|
-|---|
-
-<details>
-<summary><b>Extra wallpapers en Marisol</b></summary>
-
-|<img src="config/bspwm/rices/marisol/walls/wall-01.webp" alt="Marisol Rice" align="center" width="150px">|<img src="config/bspwm/rices/marisol/walls/wall-02.webp" alt="Marisol Rice" align="center" width="150px">|<img src="config/bspwm/rices/marisol/walls/wall-03.webp" alt="Marisol Rice" align="center" width="150px">|
-|:-:|:-:|:-:|
-<img src="config/bspwm/rices/marisol/walls/wall-05.webp" alt="Marisol Rice" align="center" width="150px">|<img src="config/bspwm/rices/marisol/walls/wall-06.webp" alt="Marisol Rice" align="center" width="150px">|<img src="config/bspwm/rices/marisol/walls/wall-07.webp" alt="Marisol Rice" align="center" width="150px">|
-
-</details>
+<img src="https://user-images.githubusercontent.com/67278339/221430203-23308e84-c974-4481-8c17-9aab53b37766.gif" alt="Neovim Themes" align="center" width="400px">
 
 ## Firefox Theme (z0mbi3 Fox)
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/9b956d3d-fc7b-49ca-b27f-dc6aa83d9e2f" alt="Firefox theme - z0mbi3-Fox" width="700">|
+|<img src="https://user-images.githubusercontent.com/67278339/228313955-670436db-d502-4249-9817-d67e3de86aa1.png" alt="Firefox theme - z0mbi3-Fox" width="700">|
 |:-:|
 Tambien puedes instalar [esta extension](https://github.com/PonyLucky/gh0stzk-Firefox/tree/master/extension) hecha por [PonyLucky](https://github.com/PonyLucky). Es una pagina de inicioi. [Preview y opciones de configuracion](https://github.com/PonyLucky/gh0stzk-Firefox/tree/master/extension). Se ve genial con mi tema de firefox.
 
-## Neovim Setup
-
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/17a1eb30-437e-4bf2-980c-6a410eff76bb" alt="Neovim configuration" width="700">|
-|:-:|
-Plugins incluidos [Neovim setup wiki](https://github.com/gh0stzk/dotfiles/wiki/Neovim-setup)
-
 ## Atajos de teclado utiles que deberias saber...
 
-| Keys | Action |
-|:-|:-|
-|<kbd>super</kbd> + <kbd>Enter</kbd><br><kbd>super</kbd> + <kbd>alt</kbd> + <kbd>Enter</kbd>| Abre una terminal<br>Abre una terminal flotante
-|<kbd>alt</kbd> + <kbd>@space</kbd>| Abre el menu para seleccionar un nuevo tema
-|<kbd>super</kbd> + <kbd>@space</kbd>| Menu de apps
-|<kbd>super</kbd> + <kbd>alt</kbd> + <kbd>w</kbd>| Menu para seleccionar un wallpaper
-|<kbd>super</kbd> + <kbd>h</kbd><br><kbd>super</kbd> + <kbd>u</kbd>|Esconde la barra/s<br>Muestra nuevamente la barra/s
-|<kbd>Print</kbd>| Toma captura de pantalla
-|<kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>[plus,minus,t]</kbd>| Changes transparency on focused window
-|<kbd>ctrl</kbd> + <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>p</kbd><br><kbd>ctrl</kbd> + <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>r</kbd><br><kbd>ctrl</kbd> + <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>k| Apaga la computadora<br>Reinicia la computadora<br>Mata un proceso o ventana
-|<kbd>super</kbd> + <kbd>alt</kbd> + <kbd>r</kbd>| Reinicia bspwm
+- <code>alt + @space</code> Abre el menu para seleccionar un nuevo tema.
+- <code>super + @space</code> Menu de apps.
+- <code>super + h </code> Esconde la barra <code>super + u</code> Muestra nuevamente la barra.
+- <code>super + Print</code> Toma captura de pantalla.
+- <code>ctrl + alt + plus</code> Incrementa la transparencia de la ventana. <code>ctrl + alt + minus</code> Decrementa la transparencia. <code>ctrl + alt + t</code> Reestablece la transparencia por default.
+- <code>ctrl + super + alt + p</code> Apaga la computadora. <code>ctrl + super + alt + r</code> Reinicia la computadora.
+- <code>super + Return</code> Abre una terminal.
+- <code>super + Alt + Return</code> Abre una terminal flotante.
+- <code>ctrl + super + alt + k</code> Mata un proceso o ventana.
+- <code>super + alt + w</code> Cambia al azar el wallpaper.
+- <code>super + alt + r</code> Reinicia bspwm.
 
 Y mas... Necesitaras mirar el archivo sxhkdrc file para ver todos los atajos.
 
@@ -333,10 +275,6 @@ El instalador solo funciona con **ARCH** Linux, y derivadas.
 - **Primero descarga el instalador**
 ```sh
 curl https://raw.githubusercontent.com/gh0stzk/dotfiles/master/RiceInstaller -o $HOME/RiceInstaller
-
-# Tal vez quieres una url mas corta??
-
-curl -L https://is.gd/gh0stzk_dotfiles -o $HOME/RiceInstaller
 ```
 - **Ahora dale permisos de ejecucion**
 ```sh
@@ -346,3 +284,11 @@ chmod +x RiceInstaller
 ```sh
 ./RiceInstaller
 ```
+
+## Problemas y Tips
+
+Mira la [Wiki](https://github.com/gh0stzk/dotfiles/wiki)
+
+## Creditos
+
+- [turquoise-hexagon](https://github.com/turquoise-hexagon/fonts), [adi1090x](https://github.com/adi1090x/widgets), [gabrielzschmitz](https://github.com/gabrielzschmitz), [elenapan](https://github.com/elenapan/dotfiles), [rxyhn](https://github.com/rxyhn/bspdots), [okklol](https://github.com/okklol/eww-bar), [ikz87](https://github.com/ikz87).

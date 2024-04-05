@@ -63,13 +63,28 @@ EOF
 }
 
 # Set compositor configuration
+#-e "s/normal = .*/normal =  { fade = true; shadow = false; }/g" \
 set_picom_config() {
 	sed -i "$HOME"/.config/bspwm/picom.conf \
-		-e "s/normal = .*/normal =  { fade = true; shadow = false; }/g" \
 		-e "s/shadow-color = .*/shadow-color = \"#000000\"/g" \
 		-e "s/corner-radius = .*/corner-radius = 0/g" \
 		-e "s/\".*:class_g = 'Alacritty'\"/\"96:class_g = 'Alacritty'\"/g" \
 		-e "s/\".*:class_g = 'FloaTerm'\"/\"96:class_g = 'FloaTerm'\"/g"
+}
+
+set_position_eww_player() {
+	sed -i "$HOME"/.config/bspwm/eww/player/player.yuck \
+		-e 's/:geometry (geometry :x "[^"]*" :y "[^"]*"/:geometry (geometry :x "18%" :y "-73.9%"/'
+}
+
+# Set stalonetray config
+set_stalonetray_config() {
+	sed -i "$HOME"/.config/bspwm/stalonetrayrc \
+		-e "s/background .*/background \"#070219\"/" \
+		-e "s/vertical .*/vertical true/" \
+		-e "s/geometry .*/geometry 1x1-100+47/" \
+		-e "s/grow_gravity .*/grow_gravity NE/" \
+		-e "s/icon_gravity .*/icon_gravity NE/"
 }
 
 # Set dunst notification daemon config
@@ -78,31 +93,31 @@ set_dunst_config() {
 		-e "s/transparency = .*/transparency = 8/g" \
 		-e "s/frame_color = .*/frame_color = \"#070219\"/g" \
 		-e "s/separator_color = .*/separator_color = \"#fb007a\"/g" \
-		-e "s/font = .*/font = JetBrainsMono NF Medium 9/g" \
-		-e "s/foreground='.*'/foreground='#27fbfe'/g"
-
+		-e "s/font = .*/font = JetBrainsMono Nerd Font Medium 9/g" \
+		-e "s/foreground='.*'/foreground='#f9f9f9'/g"
+		
 	sed -i '/urgency_low/Q' "$HOME"/.config/bspwm/dunstrc
-	cat >>"$HOME"/.config/bspwm/dunstrc <<-_EOF_
-		[urgency_low]
-		timeout = 3
-		background = "#070219"
-		foreground = "#27fbfe"
+	cat >> "$HOME"/.config/bspwm/dunstrc <<- _EOF_
+			[urgency_low]
+			timeout = 3
+			background = "#070219"
+			foreground = "#c0caf5"
 
-		[urgency_normal]
-		timeout = 6
-		background = "#070219"
-		foreground = "#27fbfe"
+			[urgency_normal]
+			timeout = 6
+			background = "#070219"
+			foreground = "#c0caf5"
 
-		[urgency_critical]
-		timeout = 0
-		background = "#070219"
-		foreground = "#27fbfe"
-	_EOF_
+			[urgency_critical]
+			timeout = 0
+			background = "#070219"
+			foreground = "#c0caf5"
+_EOF_
 }
 
 # Set eww colors
 set_eww_colors() {
-	cat >"$HOME"/.config/bspwm/eww/colors.scss <<EOF
+	cat > "$HOME"/.config/bspwm/eww/colors.scss << EOF
 // Eww colors for Jan rice
 \$bg: #070219;
 \$bg-alt: #09021f;
@@ -130,15 +145,14 @@ set_jgmenu_colors() {
 }
 
 # Set Rofi launcher config
-set_launcher_config() {
+set_launcher_config () {
 	sed -i "$HOME/.config/bspwm/scripts/Launcher.rasi" \
-		-e '22s/\(font: \).*/\1"Terminess Nerd Font Mono Bold 10";/' \
+		-e 's/\(font: \).*/\1"Terminess Nerd Font Mono Bold 10";/' \
 		-e 's/\(background: \).*/\1#070219F0;/' \
 		-e 's/\(background-alt: \).*/\1#070219E0;/' \
 		-e 's/\(foreground: \).*/\1#c0caf5;/' \
 		-e 's/\(selected: \).*/\1#fb007af0;/' \
 		-e "s/rices\/[[:alnum:]\-]*/rices\/${RICETHEME}/g"
-
 	# NetworkManager launcher
 	sed -i "$HOME/.config/bspwm/scripts/NetManagerDM.rasi" \
 		-e '12s/\(background: \).*/\1#070219F0;/' \
@@ -147,31 +161,28 @@ set_launcher_config() {
 		-e '15s/\(selected: \).*/\1#19bffe;/' \
 		-e '16s/\(active: \).*/\1#a6e22e;/' \
 		-e '17s/\(urgent: \).*/\1#fb007a;/'
-
-	# WallSelect menu colors
-	sed -i "$HOME/.config/bspwm/scripts/WallSelect.rasi" \
-		-e 's/\(main-bg: \).*/\1#070219F0;/' \
-		-e 's/\(main-fg: \).*/\1#c0caf5;/' \
-		-e 's/\(select-bg: \).*/\1#fb007a;/' \
-		-e 's/\(select-fg: \).*/\1#070219;/'
 }
 
 # Launch the bar
 launch_bars() {
 
 	for mon in $(polybar --list-monitors | cut -d":" -f1); do
-		MONITOR=$mon polybar -q main -c "${rice_dir}"/config.ini &
+		MONITOR=$mon polybar -q main -c ${rice_dir}/config.ini &
 	done
 
 }
+
+
 
 ### ---------- Apply Configurations ---------- ###
 
 set_bspwm_config
 set_term_config
 set_picom_config
+set_stalonetray_config
 launch_bars
 set_dunst_config
 set_eww_colors
 set_jgmenu_colors
 set_launcher_config
+set_position_eww_player

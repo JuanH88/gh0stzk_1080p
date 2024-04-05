@@ -121,16 +121,18 @@
 			  
 				(label :class "song"
 					   :xalign 0
+					   :halign "center"
 					   :justify "fill"
 					   :wrap "false"
-					   :limit-width 18
+					   ;; :limit-width 18 ;;
 					   :text SONG)
 					   
 				(label :class "artist"
 					   :xalign 0
+					   :halign "center"
 					   :justify "fill"
 					   :wrap "false"
-					   :limit-width 18
+					   ;; :limit-width 18 ;;
 					   :text ARTIST))))
 
 		 (box :spacing 8
@@ -282,7 +284,7 @@
 		 (scale :value volume_value
                 :space-evenly "false"
 			    :orientation "h"
-			    :onchange "pamixer --set-volume {}" 
+			    :onchange "amixer -D pulse sset Master {}%" 
                 :tooltip "volume on ${volume_value}%"
 			    :max 100
 			    :min 0
@@ -334,12 +336,12 @@
 ;;---------- Main windows ----------;;
 
 (defwindow bar
-	:geometry (geometry :y "0px"
+	:geometry (geometry :y "10px"
 						:width "100%"
 						:anchor "top center")
 
 	:stacking "fg"
-	:reserve (struts :distance "3px" :side "top")
+	:reserve (struts :distance "5px" :side "top")
 	:windowtype "dock"
 	:wm-ignore false
 (allbars))

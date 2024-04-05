@@ -1,0 +1,34 @@
+DEPENDENCIAS: base-devel rustup pacman-contrib bspwm polybar sxhkd alacritty neovim feh imagemagick brightnessctl dunst rofi lsd stalonetray jq polkit-gnome python-gobject git npm playerctl mpd xclip ncmpcpp geany ranger mpc picom xdo xdotool jgmenu ueberzug maim amixer libwebp xdg-user-dirs networkmanager webp-pixbuf-loader xorg-xprop xorg-xkill physlock papirus-icon-theme ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting xorg-xsetroot xorg-xwininfo xorg-xrandr xorg-xdpyinfo
+pacman -S dependencias --needed
+DEPENDENCIAS AUR: Paru, Eww, tdrop & xqp
+
+INSTALL
+config/ to ~/.config
+/misc/bin/ to ~/.local/bin/
+/misc/applications/ to ~/.local/share/applications/
+/misc/fonts/ to ~/.local/share/fonts/
+/misc/asciiart/ to ~/.local/share/asciiart/
+/misc/startup-page/ to ~/.local/share/startup-page/
+/misc/firefox/* to ~/.mozilla/firefox/*.default-release/
+/home/.zshrc/ to ~/
+
+cp -R ~/gh0stzk_1080p/config/* ~/.config/
+cp -R ~/gh0stzk_1080p/misc/bin/* ~/.local/bin/
+cp -R ~/gh0stzk_1080p/misc/applications/* ~/.local/share/applications/
+cp -R ~/gh0stzk_1080p/misc/fonts/* ~/.local/share/fonts/ && fc-cache -rv
+cp -R ~/gh0stzk_1080p/misc/asciiart/* ~/.local/share/asciiart/
+cp -R ~/gh0stzk_1080p/misc/startup-page/ ~/.local/share/startup-page/
+cp -R ~/gh0stzk_1080p/misc/firefox/* ~/.mozilla/firefox/*.default-release/
+cp -f "$HOME"/gh0stzk_1080p/home/.zshrc "$HOME"
+
+Enabling MPD service
+sudo systemctl stop mpd.service
+sudo systemctl disable mpd.service
+systemctl --user enable --now mpd.service
+
+Changing shell to zsh
+chsh -s /usr/bin/zsh
+
+STARTUP-PAGE
+sed -i "s/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/z0mbi3\/.local\/share\/startup-page\/index.html\")/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/$USER\/.local\/share\/startup-page\/index.html\")/" "$HOME"/.mozilla/firefox/*.default-release/user.js
+sed -i "s/name: 'gh0stzk'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js

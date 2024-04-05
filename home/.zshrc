@@ -7,7 +7,6 @@
 #   └┘ ┴ ┴┴└─└─┘
 export VISUAL="${EDITOR}"
 export EDITOR='nvim'
-export TERM='alacritty'
 export TERMINAL='alacritty'
 export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
@@ -75,7 +74,7 @@ setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
 #   ┴ ┴ ┴└─┘  ┴  ┴└─└─┘┴ ┴┴   ┴
 function dir_icon {
   if [[ "$PWD" == "$HOME" ]]; then
-    echo "%B%F{cyan}%f%b"
+    echo "%B%F{black}%f%b"
   else
     echo "%B%F{cyan}%f%b"
   fi
