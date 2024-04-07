@@ -72,9 +72,13 @@ set_picom_config() {
 		-e "s/\".*:class_g = 'FloaTerm'\"/\"100:class_g = 'FloaTerm'\"/g"
 }
 
-set_position_eww_player() {
+set_position_widgets() {
 	sed -i "$HOME"/.config/bspwm/eww/player/player.yuck \
-		-e 's/:geometry (geometry :x "[^"]*" :y "[^"]*"/:geometry (geometry :x "-27.2%" :y "-4%"/'
+		-e 's/:geometry (geometry :x "[^"]*" :y "[^"]*"/:geometry (geometry :x "-27.2%" :y "-4.5%"/'
+	sed -i "$HOME"/.config/bspwm/eww/calendar/calendar.yuck \
+		-e 's/:geometry (geometry :x "[^"]*" :y "[^"]*"/:geometry (geometry :x "40.9%" :y "67.9%"/'
+	sed -i "$HOME"/.config/bspwm/scripts/NetManagerDM.rasi \
+		-e 's/\(x-offset:[[:space:]]*\)[^;]*/\141.1%/; s/\(y-offset:[[:space:]]*\)[^;]*/\151.6%/'
 }
 
 # Set stalonetray config
@@ -185,4 +189,4 @@ set_dunst_config
 set_eww_colors
 set_jgmenu_colors
 set_launcher_config
-set_position_eww_player
+set_position_widgets

@@ -11,7 +11,7 @@ const CONFIG = {
 	// └─┘┴ ┴└─┘┴└─┘└─┘
 
 	// General
-	name: 'gh0stzk',
+	name: 'sebas',
 	imageBackground: true,
 	openInNewTab: true,
 	twelveHourFormat: true,
@@ -53,37 +53,37 @@ const CONFIG = {
 	firstButtonsContainer: [
 		{
 			id: '1',
-			name: 'Github',
+			name: 'sebas',
 			icon: 'github',
 			link: 'https://github.com/',
 		},
 		{
 			id: '2',
-			name: 'Mail',
+			name: 'sebas',
 			icon: 'mail',
 			link: 'https://mail.protonmail.com/',
 		},
 		{
 			id: '3',
-			name: 'Todoist',
+			name: 'sebas',
 			icon: 'trello',
 			link: 'https://todoist.com',
 		},
 		{
 			id: '4',
-			name: 'Calendar',
+			name: 'sebas',
 			icon: 'calendar',
 			link: 'https://calendar.google.com/calendar/r',
 		},
 		{
 			id: '5',
-			name: 'Reddit',
+			name: 'sebas',
 			icon: 'glasses',
 			link: 'https://reddit.com',
 		},
 		{
 			id: '6',
-			name: 'Odysee',
+			name: 'sebas',
 			icon: 'youtube',
 			link: 'https://odysee.com/',
 		},
@@ -92,37 +92,37 @@ const CONFIG = {
 	secondButtonsContainer: [
 		{
 			id: '1',
-			name: 'Music',
+			name: 'sebas',
 			icon: 'headphones',
 			link: 'https://open.spotify.com',
 		},
 		{
 			id: '2',
-			name: 'twitter',
+			name: 'sebas',
 			icon: 'twitter',
 			link: 'https://twitter.com/',
 		},
 		{
 			id: '3',
-			name: 'bot',
+			name: 'sebas',
 			icon: 'bot',
 			link: 'https://discord.com/app',
 		},
 		{
 			id: '4',
-			name: 'Amazon',
+			name: 'sebas',
 			icon: 'shopping-bag',
 			link: 'https://amazon.com/',
 		},
 		{
 			id: '5',
-			name: 'Hashnode',
+			name: 'sebas',
 			icon: 'pen-tool',
 			link: 'https://hashnode.com/',
 		},
 		{
 			id: '6',
-			name: 'Figma',
+			name: 'sebas',
 			icon: 'figma',
 			link: 'https://figma.com/',
 		},
@@ -139,19 +139,19 @@ const CONFIG = {
 			id: '1',
 			links: [
 				{
-					name: 'z0mbi3 dots',
+					name: 'sebas',
 					link: 'https://github.com/gh0stzk/dotfiles',
 				},
 				{
-					name: 'Arch Linux',
+					name: 'sebas',
 					link: 'https://archlinux.org/',
 				},
 				{
-					name: 'ChatGPT',
+					name: 'sebas',
 					link: 'https://chat.openai.com/',
 				},
 				{
-					name: 'MonkeyType',
+					name: 'sebas',
 					link: 'https://monkeytype.com/',
 				},
 			],
@@ -161,19 +161,19 @@ const CONFIG = {
 			id: '2',
 			links: [
 				{
-					name: 'YouTube',
+					name: 'sebas',
 					link: 'https://www.youtube.com',
 				},
 				{
-					name: 'Netflix',
+					name: 'sebas',
 					link: 'https://www.netflix.com',
 				},
 				{
-					name: 'Twitch',
+					name: 'sebas',
 					link: 'https://www.twitch.tv',
 				},
 				{
-					name: 'Amazon Prime',
+					name: 'sebas',
 					link: 'https://www.primevideo.com',
 				},
 			],
@@ -187,19 +187,19 @@ const CONFIG = {
 			id: '1',
 			links: [
 				{
-					name: 'Spotify',
+					name: 'sebas',
 					link: 'https://www.spotify.com',
 				},
 				{
-					name: 'r/unixporn',
+					name: 'sebas',
 					link: 'https://www.reddit.com/r/unixporn',
 				},
 				{
-					name: 'Facebook',
+					name: 'sebas',
 					link: 'https://www.facebook.com',
 				},
 				{
-					name: 'Twitter',
+					name: 'sebas',
 					link: 'https://twitter.com',
 				},
 			],
@@ -209,19 +209,19 @@ const CONFIG = {
 			id: '2',
 			links: [
 				{
-					name: 'Programming',
+					name: 'sebas',
 					link: 'https://www.reddit.com/r/programming/',
 				},
 				{
-					name: 'Rust',
+					name: 'sebas',
 					link: 'https://www.reddit.com/r/rust/',
 				},
 				{
-					name: 'Go',
+					name: 'sebas',
 					link: 'https://www.reddit.com/r/golang/',
 				},
 				{
-					name: 'Python',
+					name: 'sebas',
 					link: 'https://www.reddit.com/r/Python/',
 				},
 			],

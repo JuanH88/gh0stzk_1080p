@@ -37,10 +37,12 @@
 
 ;; Wifi Widgets ;;
 (defwidget wifi []
-	(box		:orientation "v"  			
+	(box		:orientation "v"
+	(eventbox 	:cursor "pointer"
 	(button		:style "background-image: url('${WIFIICON}');"
+			:onclick "OpenApps --netmanager"
 				:class "trayicon"
-				:tooltip "${NETSTAT}")))
+				:tooltip "${NETSTAT}"))))
 
 
 ;; control center ;;

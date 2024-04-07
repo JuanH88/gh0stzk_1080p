@@ -74,11 +74,13 @@ set_picom_config() {
 		-e "s/\".*:class_g = 'FloaTerm'\"/\"100:class_g = 'FloaTerm'\"/g"
 }
 
-set_position_eww_player() {
+set_position_widgets() {
 	sed -i "$HOME"/.config/bspwm/eww/player/player.yuck \
-		-e 's/:geometry (geometry :x "[^"]*" :y "[^"]*"/:geometry (geometry :x "14.3%" :y "-71.9%"/'
-		#-e 's/:geometry (geometry :x "[^"]*"/:geometry (geometry :x "14.3%"/'
-		#-e ':a;N;$!ba;s/:geometry (geometry :x "[^"]*"\n:y "[^"]*"/:geometry (geometry :x ""\n:y "-71.9%"/'
+		-e 's/:geometry (geometry :x "[^"]*" :y "[^"]*"/:geometry (geometry :x "14.3%" :y "-72.2%"/'
+	sed -i "$HOME"/.config/bspwm/eww/calendar/calendar.yuck \
+		-e 's/:geometry (geometry :x "[^"]*" :y "[^"]*"/:geometry (geometry :x "-20.6%" :y "6.8%"/'
+	sed -i "$HOME"/.config/bspwm/scripts/NetManagerDM.rasi \
+		-e 's/\(x-offset:[[:space:]]*\)[^;]*/\133%/; s/\(y-offset:[[:space:]]*\)[^;]*/\16.8%/'
 }
 
 # Set dunst notification daemon config
@@ -174,4 +176,4 @@ set_dunst_config
 set_eww_colors
 set_jgmenu_colors
 set_launcher_config
-set_position_eww_player
+set_position_widgets

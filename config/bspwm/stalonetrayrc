@@ -1,6 +1,6 @@
-background "#0B0910"
+background "#0E1113"
 vertical true
-geometry 1x1-415+45
+geometry 1x1-58+46
 grow_gravity NE
 icon_gravity NE
 icon_size 18

@@ -18,6 +18,10 @@
 (defpoll HEX  :interval "15m" "Weather hex")
 (defpoll CITY  :interval "15m" "Weather city")
 
+;; Battery vars
+(defpoll BATICON :interval "1s" `scripts/battery --icon`)
+(defpoll BATPERC :interval "1s" `scripts/battery --perc`)
+
 ;; Updates vars
 (defpoll UPDATES :interval "2m" "Updates --get-updates")
 
@@ -161,7 +165,7 @@
 	(box :class "mainbars"
 		 :spacing 15
 		 :space-evenly "false"
-
+		 
 		 (eventbox :cursor "pointer"
 		 (button :onclick "OpenApps --update"
 				 :onrightclick "OpenApps --checkupdates"
@@ -176,6 +180,23 @@
 							 :halign "start"
 							 :valign "center"
 							 :text UPDATES
+					  )
+				 )
+		 ))
+		 
+		 (eventbox :cursor "pointer"
+		 (button :onclick "xfce4-power-manager-settings &"
+				 (box :orientation "h"
+					  :spacing 2
+					  :valign "center"
+					  :halign "center"
+					  :space-evenly "false"
+					  (box :style "background-image: url('${BATICON}');"
+						   :class "icons")
+					  (label :class "infotext"
+							 :halign "start"
+							 :valign "center"
+							 :text BATPERC
 					  )
 				 )
 		 ))

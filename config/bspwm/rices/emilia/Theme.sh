@@ -82,10 +82,13 @@ set_stalonetray_config() {
 		-e "s/icon_gravity .*/icon_gravity NE/"
 }
 
-set_position_eww_player() {
+set_position_widgets() {
 	sed -i "$HOME"/.config/bspwm/eww/player/player.yuck \
-		-e 's/:geometry (geometry :x "[^"]*" :y "[^"]*"/:geometry (geometry :x "17.8%" :y "-73.9%"/'
-		#-e 's/:geometry (geometry :x "[^"]*"/:geometry (geometry :x "17.8%"/'
+		-e 's/:geometry (geometry :x "[^"]*" :y "[^"]*"/:geometry (geometry :x "17.8%" :y "-72.9%"/'
+	sed -i "$HOME"/.config/bspwm/eww/calendar/calendar.yuck \
+		-e 's/:geometry (geometry :x "[^"]*" :y "[^"]*"/:geometry (geometry :x "40.2%" :y "6%"/'
+	sed -i "$HOME"/.config/bspwm/scripts/NetManagerDM.rasi \
+		-e 's/\(x-offset:[[:space:]]*\)[^;]*/\127%/; s/\(y-offset:[[:space:]]*\)[^;]*/\16%/'
 }
 
 # Set dunst notification daemon config
@@ -186,4 +189,4 @@ set_eww_colors
 set_jgmenu_colors
 set_dunst_config
 set_launcher_config
-set_position_eww_player
+set_position_widgets

@@ -12,8 +12,7 @@
 
 ;; Windows ;;
 (defwindow date
-  :geometry (geometry :x "40.2%"
-                      :y "5%"
-                      :anchor "center top")
-  :wm-ignore true
+    :geometry (geometry :x "-20.6%" :y "6.8%"
+                        :anchor "center top")
+    :wm-ignore true
 (cal))

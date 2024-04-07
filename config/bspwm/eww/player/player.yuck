@@ -168,8 +168,8 @@
 ;; Windows ;;
 
 (defwindow music
-    :geometry (geometry :x "14.3%" :y "-71.9%"
-						:anchor "bottom center")
-	:wm-ignore false
-    (player))
+    :geometry (geometry :x "14.3%" :y "-72.2%"
+			:anchor "bottom center")
+    :wm-ignore false
+(player))
     

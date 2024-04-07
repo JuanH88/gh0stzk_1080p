@@ -255,8 +255,8 @@ else
     sleep 1
 fi
 
-sed -i "s/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/z0mbi3\/.local\/share\/startup-page\/index.html\")/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/$USER\/.local\/share\/startup-page\/index.html\")/" "$HOME"/.mozilla/firefox/*.default-release/user.js
-sed -i "s/name: 'gh0stzk'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js
+sed -i "s/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/[^\/]*\/\.local\/share\/startup-page\/index.html\")/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/$USER\/.local\/share\/startup-page\/index.html\")/" "$HOME"/.mozilla/firefox/*.default-release/user.js
+sed -i "s/name: '[^']*'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js
 cp -f "$HOME"/gh0stzk_1080p/home/.zshrc "$HOME"
 fc-cache -rv >/dev/null 2>&1
 
