@@ -257,6 +257,7 @@ fi
 
 sed -i "s/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/[^\/]*\/\.local\/share\/startup-page\/index.html\")/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/$USER\/.local\/share\/startup-page\/index.html\")/" "$HOME"/.mozilla/firefox/*.default-release/user.js
 sed -i "s/name: '[^']*'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js
+awk -v var="$(xdg-user-dir MUSIC)" '{if ($1 == "music_directory") {match($0, /music_directory[[:space:]]+/); print substr($0, 1, RSTART+RLENGTH-1) "\"" var "\""; } else print $0}' $HOME/.config/mpd/mpd.conf > tmp_mpd.conf && mv tmp_mpd.conf $HOME/.config/mpd/mpd.conf
 cp -f "$HOME"/gh0stzk_1080p/home/.zshrc "$HOME"
 fc-cache -rv >/dev/null 2>&1
 
