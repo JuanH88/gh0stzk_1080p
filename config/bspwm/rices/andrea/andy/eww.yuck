@@ -19,8 +19,8 @@
 (defpoll CITY  :interval "15m" "Weather city")
 
 ;; Battery vars
-(defpoll BATICON :interval "1s" `scripts/battery --icon`)
-(defpoll BATPERC :interval "1s" `scripts/battery --perc`)
+(defpoll BATICON :interval "1m" `scripts/battery --icon`)
+(defpoll BATPERC :interval "1m" `scripts/battery --perc`)
 
 ;; Updates vars
 (defpoll UPDATES :interval "2m" "Updates --get-updates")
@@ -117,7 +117,7 @@
 			  :style "background-image: url('${COVER}');")
 			  
 		 (eventbox :cursor "pointer"
-		 (button :onclick "OpenApps --player"
+		 (button :onclick "OpenApps --player" :onrightclick "OpenApps --music"
 		 (box :orientation "v"
 			  :class "song-info"
 			  :spacing 0
@@ -159,7 +159,18 @@
 		 )
 	)
 )
-				
+
+;; Necesario para Systray widget
+(defwidget container [?nopadding]
+  (box 
+    :class "container"
+    :style "padding: ${nopadding == true ? "0px" : "0px 0px 0px 0px"}"
+    :orientation "horizontal"
+    :halign "end"
+    :space-evenly false
+    (children))
+)
+
 ;; system
 (defwidget system []
 	(box :class "mainbars"
@@ -253,6 +264,7 @@
 				 )
 		 ))
 
+		 
 		 (eventbox :cursor "pointer"
 		 (button :onclick "OpenApps --powermenu"
 				 (box :orientation "h"
@@ -262,6 +274,9 @@
 					  :space-evenly "false"
 					  (box :style "background-image: url('images/poweroff.png');"
 						   :class "icon-power"
+						   (container
+						   (systray :pack-direction "ltr" :class "tray" :spacing 5)
+						   )
 					  )
 				 )
 		 ))
@@ -347,12 +362,10 @@
 		 :space-evenly "false"
 		 :spacing 15
 		 :halign "center"
-		 :valign "center"
-		 
+		 :valign "center"	 
 (left)
 (middle)
 (right)))
-
 
 ;;---------- Main windows ----------;;
 

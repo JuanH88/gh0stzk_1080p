@@ -143,10 +143,53 @@ tooltip {
     	background-color: #67D4F1;
 	border-radius: 24px;
 }
+
 .speaker_bar scale trough {
 	background-color: $bg;
     	border: 3px solid $borderbg; 
 	border-radius: 24px;
 	min-height: 13px;
 	min-width: 120px;
+}
+
+//----- SystemTray -----//
+
+.container {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-radius: 0px;
+	background-color: $bg;
+
+	& > * + * {
+	margin-left: 0px;
+	margin-right: 0px;
+	}
+}
+.tray menu {
+	border-radius: 0px;
+	border: 1px solid $borderbg;
+	padding: 5px 0px;
+
+	background-color: $bg;
+
+	>menuitem {
+		padding: 0px 5px;
+
+		&:disabled label {
+			color: gray;
+		}
+
+		&:hover {
+			background-color: $magenta;
+		}
+	}
+
+	separator {
+		background-color: $borderbg;
+		padding-top: 1px;
+
+		&:last-child {
+			padding: unset;
+		}
+	}
 }

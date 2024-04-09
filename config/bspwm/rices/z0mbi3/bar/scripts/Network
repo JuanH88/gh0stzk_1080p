@@ -11,13 +11,8 @@
 #	23.09.2023 13:39:59
 
 ID=$(ip link | awk '/state UP/ {print $2}' | tr -d :)
-SSID=""
+SSID="$(nmcli -t -f NAME connection show --active | head -n 1)"
 ICON="images/wifi.png"
-
-	if command -v iwgetid >/dev/null 2>&1 ; then
-		SSID=$(iwgetid -r)
-	fi
-
 ping_servers=("archlinux.org" "google.com")
 
 is_online() {

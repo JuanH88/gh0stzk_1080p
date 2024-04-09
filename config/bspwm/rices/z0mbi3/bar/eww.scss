@@ -74,11 +74,11 @@ $archlogo: #0f94d2;
 }
 
 .bar-updates-text {
-  font-family: "JetBrainsMono Nerd Font Bold";
+  font-family: "JetBrainsMono NF";
   font-size: 14px;
   font-weight: Bold;
   color: #8ea6c4;
-  margin: .4rem 0 .2rem .2rem;
+  margin: 0.4rem 0 0.2rem 0.2rem;
 }
 
 scale trough {
@@ -97,7 +97,7 @@ scale trough {
 
 // Clock
 .time {
-  font-family: JetBrainsMono Nerd Font;
+  font-family: JetBrainsMono NF;
   font-weight: bold;
   font-size: 1.2em;
   background-color: $black;
@@ -128,5 +128,47 @@ scale trough {
   background-size: 22px;
   min-height: 22px;
   min-width: 7px;
-  margin: 0rem 0rem .5rem 9px;
+  margin: 0rem 0rem 0.5rem 9px;
+}
+
+//----- SystemTray -----//
+
+.container {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-radius: 0px;
+	background-color: $black;
+
+	& > * + * {
+	margin-left: 0px;
+	margin-right: 0px;
+	}
+}
+.tray menu {
+	border-radius: 0px;
+	border: 1px solid #161616;
+	padding: 5px 0px;
+
+	background-color: $gray;
+
+	>menuitem {
+		padding: 0px 5px;
+
+		&:disabled label {
+			color: gray;
+		}
+
+		&:hover {
+			background-color: $archlogo;
+		}
+	}
+
+	separator {
+		background-color: $foreground;
+		padding-top: 1px;
+
+		&:last-child {
+			padding: unset;
+		}
+	}
 }

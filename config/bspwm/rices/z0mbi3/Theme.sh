@@ -162,7 +162,6 @@ set_launcher_config () {
 # Launch the bar and or eww widgets
 launch_bars() {
 	eww -c ${rice_dir}/bar open --toggle bar
-	polybar -q tray -c ${rice_dir}/bar/polybar_tray.ini &
 }
 
 

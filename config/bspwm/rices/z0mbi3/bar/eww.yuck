@@ -16,9 +16,24 @@
 (defpoll UPDATES :interval "2m" `Updates --get-updates`)
 (defvar pac false)
 
+;; Battery vars
+(defpoll BATICON :interval "1m" `scripts/battery --icon`)
+(defpoll BATPERC :interval "1m" `scripts/battery --perc`)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;							Widget Section's							 ;;	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Necesario para Systray widget
+(defwidget container [?nopadding]
+  (box 
+    :class "container"
+    :style "padding: ${nopadding == true ? "0px" : "0px 0px 8px 0px"}"
+    :orientation "vertical"
+    :halign "center"
+    :space-evenly false
+    (children))
+)
 
 ;; Launcher Widgets ;;
 (defwidget launcher []
@@ -108,6 +123,14 @@
 				:onrightclick "OpenApps --checkupdates"
 				:onclick "OpenApps --update")) )))
 
+;; Battery Widgets ;;
+(defwidget battery []
+	(box		:orientation "v"
+	(eventbox 	:cursor "pointer"
+	(button		:style "background-image: url('${BATICON}');"
+			:onclick "xfce4-power-manager-settings &"
+				:class "trayicon"
+				:tooltip "${BATPERC}"))))
 
 ;; Volume Widgets ;;
 (defwidget volum []
@@ -209,10 +232,14 @@
 	(box :orientation "v" 
 		 :space-evenly false  
 		 :class "control"
+		 (container
+		 (systray :pack-direction "ltr" :class "tray" :spacing 10 :orientation "v")
+		 )
 (notifycenter)
 (volum)
 (wifi)
-(pacman)))
+(pacman)
+(battery)))
 
 ;; End Widgets ;;
 (defwidget end []
