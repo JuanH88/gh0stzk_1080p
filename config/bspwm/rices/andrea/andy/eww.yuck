@@ -275,7 +275,7 @@
 					  (box :style "background-image: url('images/poweroff.png');"
 						   :class "icon-power"
 						   (container
-						   (systray :pack-direction "ltr" :class "tray" :spacing 5)
+						   (systray :class "tray" :spacing 5)
 						   )
 					  )
 				 )

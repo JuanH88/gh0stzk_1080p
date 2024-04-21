@@ -79,15 +79,11 @@ toggle_mute_mic() {
 }
 
 # Execute accordingly
-if command -v amixer &>/dev/null; then
-	case "$1" in
-		--get) get_volume ;;
-		--inc) adjust_volume 5%+ ;;
-		--dec) adjust_volume 5%- ;;
-		--toggle) toggle_mute ;;
-		--toggle_mic) toggle_mute_mic ;;
-		*) echo "$(get_volume)%" ;;
-	esac
-else
-	${notify_cmd} "'amixer' is not installed."
-fi
+case "$1" in
+	--get) get_volume ;;
+	--inc) adjust_volume 5%+ ;;
+	--dec) adjust_volume 5%- ;;
+	--toggle) toggle_mute ;;
+	--toggle_mic) toggle_mute_mic ;;
+	*) echo "$(get_volume)%" ;;
+esac

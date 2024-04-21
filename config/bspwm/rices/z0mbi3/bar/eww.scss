@@ -78,7 +78,7 @@ $archlogo: #0f94d2;
   font-size: 14px;
   font-weight: Bold;
   color: #8ea6c4;
-  margin: 0.4rem 0 0.2rem 0.2rem;
+  margin: 0.4rem 0 0.2rem 0;
 }
 
 scale trough {
@@ -128,47 +128,39 @@ scale trough {
   background-size: 22px;
   min-height: 22px;
   min-width: 7px;
-  margin: 0rem 0rem 0.5rem 9px;
+  margin: 0rem 0rem 0.5rem 10px;
 }
 
 //----- SystemTray -----//
 
-.container {
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
-	border-radius: 0px;
-	background-color: $black;
+.tray {
+	padding: 10px 0px 0px 0px;
+	
+	menu {
+		border-radius: 0px;
+		border: 1px solid #161616;
+		padding: 5px 0px;
+		background-color: $gray;
 
-	& > * + * {
-	margin-left: 0px;
-	margin-right: 0px;
-	}
-}
-.tray menu {
-	border-radius: 0px;
-	border: 1px solid #161616;
-	padding: 5px 0px;
+		>menuitem {
+			padding: 0px 5px;
 
-	background-color: $gray;
+			&:disabled label {
+				color: gray;
+			}
 
-	>menuitem {
-		padding: 0px 5px;
-
-		&:disabled label {
-			color: gray;
+			&:hover {
+				background-color: $archlogo;
+			}
 		}
 
-		&:hover {
-			background-color: $archlogo;
-		}
-	}
+		separator {
+			background-color: $foreground;
+			padding-top: 1px;
 
-	separator {
-		background-color: $foreground;
-		padding-top: 1px;
-
-		&:last-child {
-			padding: unset;
+			&:last-child {
+				padding: unset;
+			}
 		}
 	}
 }

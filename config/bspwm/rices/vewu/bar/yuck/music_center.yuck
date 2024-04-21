@@ -1,0 +1,32 @@
+(defwindow musiccenter
+  :monitor 0
+  :exclusive "false"
+  :stacking "overlay"
+  :geometry (geometry :x "0"
+                      :y "-40"
+                      :width "100px"
+                      :height "50px"
+                      :anchor "bottom center")
+  (box :orientation "h" :space-evenly "false"
+    (box :class "musicart" :style {musicartlink != "" ? `background-image: url("${musicartlink}"); min-height:84px; min-width: 84px; margin-right: 10px;` :  `min-height:0px; min-width: 0px; border:unset;`})
+    (box :class "musiccontrols" :orientation "v" :space-evenly "false" :spacing 5
+      (label :class "musictitle" :text {musicshort} :valign "start" :halign "start")
+      (box :orientation "h"
+          :class "musicscale"
+          :space-evenly false
+          :halign "center"
+        (box :class "label" {musicposition})
+        (scale :onchange {music-player != "spotify" ? "mpc seek {}" : "playerctl -p ${music-player} position {}"}
+              :min 0
+              :max music-lengths
+              :value music-positions)
+        (box :class "label" {musiclength})
+      )
+      (box :class "musicbuttons" :orientation "h" :halign "center" :spacing 30
+        (button :class "musicbutton" :onclick "MediaControl --previous" "󰒮")
+        (button :class "musicbutton" :onclick "MediaControl --toggle" {playingorpaused != "Paused" ? "󰏤" : "󰐊" })
+        (button :class "musicbutton" :onclick "MediaControl --next" "󰒭")
+      )
+    )
+  )
+)

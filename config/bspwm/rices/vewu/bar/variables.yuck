@@ -1,0 +1,51 @@
+(defpoll volume :interval "1s"
+  "~/.config/bspwm/rices/vwv/bar/scripts/volume.sh --vol")
+(defpoll networkstatus :interval "1s"
+  `nmcli -t -f NAME connection show --active | head -n 1`)
+(defpoll bluetoothstatus :interval "1s"
+  `bluetoothctl show | grep "Powered" | cut -c11-`)
+(defpoll temp :interval "1s"
+  "sensors | grep -A 0 'temp1' | cut -c16-17 | head -n 1")
+(defpoll cpusage :interval "1s"
+  "vmstat 1 2 | awk 'END { print 100 - $15 }'")
+(defpoll memoryusage :interval "1s"
+  `free -m | awk 'NR==2{printf "%.f", $3*100/$2 }'`)
+
+
+(defpoll uptime :interval "60s"
+  "uptime -p | cut -c3-")
+(defpoll brightness :interval "5"
+  "brightnessctl -m echo 'text|jdbc' | sed -e 's/,/\ /g' | awk '{print $3/$5*100}'")
+
+
+(defpoll musicartlink :interval "1s"
+  `MediaControl --cover`)
+(defpoll musicposition :interval "1s"
+  `MediaControl --position`)
+(defpoll music-positions :interval "1s"
+  `MediaControl --positions`)
+(defpoll musiclength :interval "10s"
+  `MediaControl --length`)
+(defpoll music-lengths :interval "1s"
+  `MediaControl --lengths`)
+(defpoll music-player :interval "1s"
+  `MediaControl --player`)
+(defpoll playingorpaused :interval "0" 
+  `MediaControl --status`)
+(defpoll music :interval "1s"
+  "playerctl metadata --format '{{ title }} - {{ artist }}' || mpc current --format '%title% - %artist%'")
+(defpoll musicshort :interval "1s"
+  `MediaControl --title`)
+
+
+(defvar ismusicopenornot false)
+(defvar bluetoggle false)
+(defvar nighttoggle false)
+
+(defvar notification ``)
+(defvar notificationreveal false)
+(defvar notifsliteral "")
+
+(defpoll monthname :interval "2s"
+  "date +%B"
+)

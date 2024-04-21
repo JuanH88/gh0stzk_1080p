@@ -3,8 +3,14 @@
 ;; Workspaces
 (deflisten workspaces "./scripts/WorkSpaces")
 
-;; Volume vars
+;; Reveal Vars
+(defvar notify false)
+(defvar pac false)
+(defvar bat false)
 (defvar volum false)
+(defvar power false)
+
+;; Volume vars
 (defpoll volume_icon :interval "1s" "scripts/Volume --icon")
 (defpoll volume_value :interval "1s" "scripts/Volume --vol")
 
@@ -14,26 +20,14 @@
 
 ;; Updates vars
 (defpoll UPDATES :interval "2m" `Updates --get-updates`)
-(defvar pac false)
 
 ;; Battery vars
 (defpoll BATICON :interval "1m" `scripts/battery --icon`)
 (defpoll BATPERC :interval "1m" `scripts/battery --perc`)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;							Widget Section's							 ;;	
+;;			     Widget Section's 	 			 ;;	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Necesario para Systray widget
-(defwidget container [?nopadding]
-  (box 
-    :class "container"
-    :style "padding: ${nopadding == true ? "0px" : "0px 0px 8px 0px"}"
-    :orientation "vertical"
-    :halign "center"
-    :space-evenly false
-    (children))
-)
 
 ;; Launcher Widgets ;;
 (defwidget launcher []
@@ -97,7 +91,6 @@
 				:class "trayicon" 									
 				:tooltip "Widgets"))))
 
-(defvar notify false)
 
 
 ;; Pacman Widgets ;;
@@ -125,12 +118,25 @@
 
 ;; Battery Widgets ;;
 (defwidget battery []
-	(box		:orientation "v"
-	(eventbox 	:cursor "pointer"
+	(eventbox	:onhover "${EWW_CMD} update bat=true"	
+				:onhoverlost "${EWW_CMD} update bat=false" 
+	(box		:orientation "v"					
+				:space-evenly "false" 	 
+				:vexpand "false" 	
+				
+	(revealer	:transition "slideup"				
+				:reveal bat			 
+				:duration "550ms"
+	(box		:orientation "v"					
+				:space-evenly "false"
+				
+	(label  	:class "bar-updates-text"
+				:text "${BATPERC}")))
+	
+	(eventbox   	:cursor "pointer"
 	(button		:style "background-image: url('${BATICON}');"
-			:onclick "xfce4-power-manager-settings &"
 				:class "trayicon"
-				:tooltip "${BATPERC}"))))
+				:onclick "xfce4-power-manager-settings &")))))
 
 ;; Volume Widgets ;;
 (defwidget volum []
@@ -154,7 +160,7 @@
 	(button   :style "background-image: url('${volume_icon}');"
 			  :class "trayicon"
 			  :onrightclick "OpenApps --soundcontrol"
-			  :onclick "scripts/volume --toggle-muted"))))
+			  :onclick "scripts/Volume --toggle-muted"))))
 
 ;; Clock Widgets ;;
 (defwidget time []
@@ -209,7 +215,6 @@
 				:style "background-image: url('images/sys-powermenu.png');"
 				:class "button-powermenu"					
 				:tooltip "Power Menu"))))
-(defvar power false)
 
 
 ;; Top Widgets ;;
@@ -218,7 +223,8 @@
 			:space-evenly "false" 
 			:valign "start" 
 (launcher)
-(workspaces)))
+(workspaces)
+(systray :pack-direction "ltr" :class "tray" :spacing 10 :orientation "v")))
 
 ;; Bottom Widgets ;;
 (defwidget bottom []
@@ -232,9 +238,6 @@
 	(box :orientation "v" 
 		 :space-evenly false  
 		 :class "control"
-		 (container
-		 (systray :pack-direction "ltr" :class "tray" :spacing 10 :orientation "v")
-		 )
 (notifycenter)
 (volum)
 (wifi)
@@ -260,14 +263,14 @@
 (end)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;							Window Section's							 ;;	
+;;	                       Window Section's		                 ;;	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defwindow bar
 	:geometry (geometry :x "15px"
 						:y "0%"
 						:anchor "left center"
-						:height "86%"
+						:height "95%"
 						:width "47px")
 						
 	:reserve (struts :distance "5px"

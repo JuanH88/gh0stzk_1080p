@@ -159,12 +159,8 @@ tooltip {
 	padding: 0px 0px 0px 0px;
 	border-radius: 0px;
 	background-color: $bg;
-
-	& > * + * {
-	margin-left: 0px;
-	margin-right: 0px;
-	}
 }
+
 .tray menu {
 	border-radius: 0px;
 	border: 1px solid $borderbg;

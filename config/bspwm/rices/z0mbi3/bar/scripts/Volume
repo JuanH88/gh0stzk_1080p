@@ -12,8 +12,8 @@
 #	23.09.2023 12:30:34
 
 get_vol () {
-  volumen=$(amixer -D pulse get Master | grep -o '[0-9]*%' | sed 's/%//' | head -1)
-  [[ $volumen == 'muted' ]] && echo "0" || echo "${volumen}"
+  volumen=$(amixer -D pulse get Master | grep -m 1 -oP '[0-9]+(?=%)')
+  [[ $(amixer -D pulse get Master | grep '\[off\]') ]] && echo "0" || echo "${volumen}"
 }
 
 get_icon () {

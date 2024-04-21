@@ -1,0 +1,10 @@
+/* Remove rounded corners */
+button,
+.titlebar,
+.titlebar .background,
+decoration,
+window,
+window.background
+{
+    border-radius: 0px;
+}

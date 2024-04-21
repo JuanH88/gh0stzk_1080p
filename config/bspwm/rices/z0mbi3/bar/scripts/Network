@@ -24,18 +24,18 @@ is_online() {
     return 1  # Offline
 }
 
-	if is_online; then
-		if [[ $ID == e* ]]; then
-			STATUS="$ID"
-		else
-			STATUS="$SSID"
-		fi
+if is_online; then
+	if [[ $ID == e* ]]; then
+		STATUS="$ID"
 	else
-		STATUS="Offline"
-		ICON="images/no-wifi.png"
+		STATUS="$SSID"
 	fi
+else
+	STATUS="Offline"
+	ICON="images/no-wifi.png"
+fi
 
-	case "$1" in
-		--stat) echo "$STATUS" ;;
-		--icon) echo "$ICON" ;;
-	esac
+case "$1" in
+	--stat) echo "$STATUS" ;;
+	--icon) echo "$ICON" ;;
+esac
