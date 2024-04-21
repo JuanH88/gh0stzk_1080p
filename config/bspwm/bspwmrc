@@ -63,7 +63,7 @@ bspc rule -a nmtui state=floating center=true locked=on focus=on
 . SetSysVars
 
 # Terminate already running polybar, stalonetray, sxhkd and dunst instances
-processes=("eww.*bar" "polybar" "sxhkd" "dunst" "stalonetray")
+processes=("eww.*bar" "polybar" "sxhkd" "dunst" "tiramisu" "stalonetray")
 
 for process in "${processes[@]}"; do
 	if pgrep -f "$process"; then
