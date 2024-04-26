@@ -237,6 +237,11 @@
   ))
 )
 
+;; windows
+(defwindow notification :monitor 0 :wm-ignore true :focusable "true"
+  :geometry (geometry :x "46" :y "6" :height "1068" :width "500" :anchor "top left")
+  (notifs-box))
+
 (defwindow bar
   :monitor 0
   :exclusive "true"

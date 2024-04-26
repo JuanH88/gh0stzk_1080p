@@ -88,10 +88,14 @@ set_dunst_config() {
 	if command -v tiramisu &>/dev/null; then
 		pkill -f tiramisu; bash ~/.config/bspwm/rices/vwv/bar/scripts/tiramisupipe.sh &
 		sxhkd -c ~/.config/bspwm/rices/vwv/sxhkdrc &
+		sed -i '15s/.*/    (notification_center_tiramisu)/' ~/.config/bspwm/rices/vwv/bar/yuck/calendar.yuck
+		sed -i '2s/.*/(defvar notifications-cards "")/' ~/.config/bspwm/rices/vwv/bar/yuck/calendar.yuck
 	else
 		dunst -config ~/.config/bspwm/rices/vwv/dunstrc &
-		dunstify -u low "'tiramisu' is not installed."
+		dunstify -a "Notification Center" "Notification Center" "'tiramisu' is not installed." -u normal
 		sxhkd -c ~/.config/bspwm/rices/vwv/sxhkdrc &
+		sed -i '15s/.*/    (notification_center_dunst)/' ~/.config/bspwm/rices/vwv/bar/yuck/calendar.yuck
+		sed -i '2s/.*/\(deflisten notifications-cards "~\/.config\/bspwm\/rices\/vwv\/bar\/scripts\/logger.zsh subscribe"\)/' ~/.config/bspwm/rices/vwv/bar/yuck/calendar.yuck
 	fi
 }
 
