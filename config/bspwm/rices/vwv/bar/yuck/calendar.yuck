@@ -1,5 +1,5 @@
 (deflisten calendarliteral "~/.config/bspwm/rices/vwv/bar/scripts/calendar.sh")
-(deflisten notifications-cards "~/.config/bspwm/rices/vwv/bar/scripts/logger.zsh subscribe")
+(deflisten notifications-cards "~/.config/bspwm/rices/vwv/bar/scripts/logger.sh subscribe")
 
 (defwindow calendarcenter
   :monitor 0
@@ -35,7 +35,7 @@
         (box :orientation "v" :space-evenly "false" :valign "end" :spacing 10
             (box :orientation "h" :spacing 10
                 (button :class "test" :style { notifsliteral == "" ? "font-size:0px; background-color:transparent;" : "min-width: 0px; min-height: 0px;"} " 󰂛   Silence")
-                (button :class "test" :onclick `eww -c ~/.config/bspwm/rices/vwv/bar close calendarcenter && eww -c ~/.config/bspwm/rices/vwv/bar update notifsliteral="" && sed -i '34,$d' ~/.config/bspwm/rices/vwv/bar/scripts/notifhistory.sh` :style { notifsliteral == "" ? "font-size:0px; background-color:transparent;" : "min-width: 0px; min-height: 0px;"} "   Clear All")
+                (button :class "test" :onclick `eww -c ~/.config/bspwm/rices/vwv/bar close calendarcenter; eww -c ~/.config/bspwm/rices/vwv/bar update notifsliteral=""; sed -i '34,$d' ~/.config/bspwm/rices/vwv/bar/scripts/notifhistory.sh` :style { notifsliteral == "" ? "font-size:0px; background-color:transparent;" : "min-width: 0px; min-height: 0px;"} "   Clear All")
             )
         )
     )
@@ -43,13 +43,14 @@
 
 (defwidget notification_center_dunst []
     (box :orientation "v" :space-evenly "false" :spacing 10
+        :visible true
         :class "notificationhistory"
         :style { notifsliteral == "" ? "background-color:transparent;" : ""} 
         (literal :content notifications-cards :class "notification-literal")
         (box :orientation "v" :space-evenly "false" :valign "end" :spacing 10
             (box :orientation "h" :spacing 10
-                (button :class "test" :onclick `eww -c ~/.config/bspwm/rices/vwv/bar close calendarcenter && ~/.config/bspwm/rices/vwv/bar/scripts/dnd.sh --toggle` :style { notifsliteral == "" ? "font-size:0px; background-color:transparent;" : "min-width: 0px; min-height: 0px;"} " 󰂛   Silence")
-                (button :class "test" :onclick `eww -c ~/.config/bspwm/rices/vwv/bar close calendarcenter && ~/.config/bspwm/rices/vwv/bar/scripts/logger.zsh clear` :style { notifsliteral == "" ? "font-size:0px; background-color:transparent;" : "min-width: 0px; min-height: 0px;"} "   Clear All")
+                (button :class "test" :onclick `eww -c ~/.config/bspwm/rices/vwv/bar close calendarcenter; ~/.config/bspwm/rices/vwv/bar/scripts/dnd.sh --toggle` :style { notifsliteral == "" ? "font-size:0px; background-color:transparent;" : "min-width: 0px; min-height: 0px;"} " 󰂛   Silence")
+                (button :class "test" :onclick `eww -c ~/.config/bspwm/rices/vwv/bar close calendarcenter; eww -c ~/.config/bspwm/rices/vwv/bar update notifsliteral=""; ~/.config/bspwm/rices/vwv/bar/scripts/logger.sh clear` :style { notifsliteral == "" ? "font-size:0px; background-color:transparent;" : "min-width: 0px; min-height: 0px;"} "   Clear All")
             )
         )
     )

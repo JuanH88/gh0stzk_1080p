@@ -45,9 +45,9 @@
 (defvar notification ``)
 (defvar notificationreveal false)
 (defvar notifsliteral "")
+(defvar ndunst "true")
 
 (defpoll monthname :interval "2s"
   "date +%B"
 )
-
 

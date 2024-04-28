@@ -151,7 +151,7 @@
     (box :spacing 10
       (button :class { networkstatus != "lo" ? "testenabled" : "test"} :onclick {networkstatus != "lo" ? "rfkill block wifi &" : "rfkill unblock wifi"} "󰤨 ")
       (button :class { bluetoothstatus != "no" ? "testenabled" : "test"}  :onclick {bluetoothstatus != "no" ? "bluetoothctl power off" : "bluetoothctl power on"}  "")
-      (button :class { nighttoggle != false ? "testenabled" : "test"} :onclick {nighttoggle != false ? "~/.config/bspwm/rices/vwv/bar/scripts/redshift toggle & eww -c ~/.config/bspwm/rices/vwv/bar update nighttoggle=false" : "~/.config/bspwm/rices/vwv/bar/scripts/redshift toggle & eww -c ~/.config/bspwm/rices/vwv/bar update nighttoggle=true"} " ")
+      (button :class { nighttoggle != false ? "testenabled" : "test"} :onclick {nighttoggle != false ? "~/.config/bspwm/rices/vwv/bar/scripts/redshift toggle && eww -c ~/.config/bspwm/rices/vwv/bar update nighttoggle=false" : "~/.config/bspwm/rices/vwv/bar/scripts/redshift toggle && eww -c ~/.config/bspwm/rices/vwv/bar update nighttoggle=true"} " ")
     )
     (box :spacing 10
       (button :class "test" :onclick "eww -c ~/.config/bspwm/rices/vwv/bar open actioncenter --toggle && ScreenShoTer --sel" "󰹑 ")

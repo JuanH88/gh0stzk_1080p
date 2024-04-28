@@ -64,12 +64,4 @@ frame_color = "#111111"
 
 [logger]
 summary = "*"
-script = "~/.config/bspwm/rices/vwv/bar/scripts/logger.zsh"
-
-[spotify]
-summary = "*"
-script = "/home/sebas/Escritorio/hotfiles-bspwm/.config/eww/Main/scripts/music-art"
-
-[spotify-icon]
-appname = "Spotify"
-icon = "~/.cache/temp.png"
+script = "~/.config/bspwm/rices/vwv/bar/scripts/logger.sh"
