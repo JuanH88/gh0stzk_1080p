@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Notifications Tiramisu or Dunst(dunstrc)
-{ tiramisu -o "{\"summary\":\"#summary\", \"source\":\"#source\", \"body\":\"#body\"}" || echo "{\"summary\":\"$DUNST_SUMMARY\", \"source\":\"$DUNST_APP_NAME\", \"body\":\"$DUNST_BODY\"}"; } | while read -r line; do
+{ tiramisu -o "{\"summary\":\"#summary\", \"source\":\"#source\", \"body\":\"#body\"}" || { [[ -n $DUNST_ID ]] && echo "{\"summary\":\"$DUNST_SUMMARY\", \"source\":\"$DUNST_APP_NAME\", \"body\":\"$DUNST_BODY\"}"; }; } | while read -r line; do
     while true; do
         number=$(od -An -N2 -d /dev/urandom)
         if [[ $number -ge 10000 ]] && [[ $number -le 99999 ]]; then
