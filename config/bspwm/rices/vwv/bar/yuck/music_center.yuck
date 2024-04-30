@@ -16,7 +16,7 @@
           :space-evenly false
           :halign "center"
         (box :class "label" {musicposition})
-        (scale :onchange {music-player != "spotify" ? "mpc seek {}" : "playerctl -p ${music-player} position {}"}
+        (scale :onchange {music-player == "MPD" ? "mpc seek {}" : "playerctl -p ${music-player} position {}"}
               :min 0
               :max music-lengths
               :value music-positions)
