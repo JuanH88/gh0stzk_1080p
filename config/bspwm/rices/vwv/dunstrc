@@ -64,4 +64,4 @@ frame_color = "#111111"
 
 [logger]
 summary = "*"
-script = "~/.config/bspwm/rices/vwv/bar/scripts/logger.sh"
+script = "~/.config/bspwm/rices/vwv/bar/scripts/logger-notifications.sh"
