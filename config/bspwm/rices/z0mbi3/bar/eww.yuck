@@ -224,7 +224,7 @@
 			:valign "start" 
 (launcher)
 (workspaces)
-(systray :pack-direction "ltr" :class "tray" :spacing 10 :orientation "v")))
+(systray :class "tray" :icon-size 22 :spacing 10 :orientation "v")))
 
 ;; Bottom Widgets ;;
 (defwidget bottom []
