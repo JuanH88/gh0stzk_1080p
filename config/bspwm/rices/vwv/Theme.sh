@@ -86,7 +86,7 @@ set_position_widgets() {
 # Set dunst notification daemon config
 set_dunst_config() {
 	if command -v tiramisu &>/dev/null; then
-		pkill -f tiramisu; bash ~/.config/bspwm/rices/vwv/bar/scripts/logger-notifications.sh &
+		pkill -f tiramisu; bash ~/.config/bspwm/rices/vwv/bar/scripts/notifications-logger.sh &
 		sxhkd -c ~/.config/bspwm/rices/vwv/sxhkdrc &
 	else
 		dunst -config ~/.config/bspwm/rices/vwv/dunstrc &

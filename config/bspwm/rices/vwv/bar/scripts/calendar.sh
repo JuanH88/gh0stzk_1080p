@@ -1,31 +1,31 @@
 #!/bin/bash
 
 declare -a days
-monthlength=31
+monthlength=$(date -d "$(date +'%Y-%m-01') +1 month -1 day" +'%d')
+last_monthlength=$(date -d "$(date +'%Y-%m-01') -1 day" +'%d')
 endpadding=("1\" :class \"invalidday\"" "2\" :class \"invalidday\"" "3\" :class \"invalidday\"" "4\" :class \"invalidday\"" "5\" :class \"invalidday\"" "6\" :class \"invalidday\"" "7\" :class \"invalidday\"" "8\" :class \"invalidday\"" "9\" :class \"invalidday\"" "10\" :class \"invalidday\"" "11\" :class \"invalidday\"")
 su=()
-mo=("31\" :class \"invalidday\"")
-tu=("30\" :class \"invalidday\"" "31\" :class \"invalidday\"")
-we=("29\" :class \"invalidday\"" "30\" :class \"invalidday\"" "31\" :class \"invalidday\"")
-th=("28\" :class \"invalidday\"" "29\" :class \"invalidday\"" "30\" :class \"invalidday\"" "31\" :class \"invalidday\"")
-fr=("27\" :class \"invalidday\"" "28\" :class \"invalidday\"" "29\" :class \"invalidday\"" "30\" :class \"invalidday\"" "31\" :class \"invalidday\"")
-sa=("26\" :class \"invalidday\"" "27\" :class \"invalidday\"" "28\" :class \"invalidday\"" "29\" :class \"invalidday\"" "30\" :class \"invalidday\"" "31\" :class \"invalidday\"")
-
+mo=("$(($last_monthlength))\" :class \"invalidday\"")
+tu=("$(($last_monthlength -1))\" :class \"invalidday\"" "$(($last_monthlength))\" :class \"invalidday\"")
+we=("$(($last_monthlength -2))\" :class \"invalidday\"" "$(($last_monthlength -1))\" :class \"invalidday\"" "$(($last_monthlength))\" :class \"invalidday\"")
+th=("$(($last_monthlength -3))\" :class \"invalidday\"" "$(($last_monthlength -2))\" :class \"invalidday\"" "$(($last_monthlength -1))\" :class \"invalidday\"" "$(($last_monthlength))\" :class \"invalidday\"")
+fr=("$(($last_monthlength -4))\" :class \"invalidday\"" "$(($last_monthlength -3))\" :class \"invalidday\"" "$(($last_monthlength -2))\" :class \"invalidday\"" "$(($last_monthlength -1))\" :class \"invalidday\"" "$(($last_monthlength))\" :class \"invalidday\"")
+sa=("$(($last_monthlength -5))\" :class \"invalidday\"" "$(($last_monthlength -4))\" :class \"invalidday\"" "$(($last_monthlength -3))\" :class \"invalidday\"" "$(($last_monthlength -2))\" :class \"invalidday\"" "$(($last_monthlength -1))\" :class \"invalidday\"" "$(($last_monthlength))\" :class \"invalidday\"")
 
 # Get current date
-current_date=$(date +%A)
+#current_date=$(date +%A)
 
 # Get day number (separate call)
 day_number=$(date +%-d)
 
 # Get month information
-month_name=$(date +%B)
+#month_name=$(date +%B)
 
 # Get the first day of the month in YYYY-MM-DD format
 first_date=$(date +%Y-%m-01)
 
 # Use date command again to get the name of the weekday for the first date
-day_name=$(date --date="$first_date" +%A | cut -c1-2)
+day_name=$(LC_TIME=C date --date="$first_date" +%A | cut -c1-2)
 
 for (( i=1; i<=monthlength; i++ )); do
     if [ $i == $day_number ]; then
@@ -57,7 +57,8 @@ elif [ $day_name == "Sa" ]; then
     days=("${sa[@]}" "${days[@]}")
 
 fi
-    days=("${days[@]}" "${endpadding[@]}")
+
+days=("${days[@]}" "${endpadding[@]}")
 
 eww -c ~/.config/bspwm/rices/vwv/bar update calendarliteral="(box :orientation \"v\" :space-evenly \"false\" :spacing 20 \
                                 (box :class \"daynames\" :orientation \"h\" :space-evenly \"false\" :spacing 38 :halign \"center\" \
@@ -80,7 +81,7 @@ eww -c ~/.config/bspwm/rices/vwv/bar update calendarliteral="(box :orientation \
                                         (label :text \"${days[28]})(label :text \"${days[29]})(label :text \"${days[30]})(label :text \"${days[31]})(label :text \"${days[32]})(label :text \"${days[33]})(label :text \"${days[34]}) \
                                     ) \
                                     (box :space-evenly \"true\" :orientation \"h\" :halign \"center\" :spacing 40 \
-                                        (label :text \"${days[35]})(label :text \"${days[40]})(label :text \"${days[37]})(label :text \"${days[38]})(label :text \"${days[39]})(label :text \"${days[40]})(label :text \"${days[41]}) \
+                                        (label :text \"${days[35]})(label :text \"${days[36]})(label :text \"${days[37]})(label :text \"${days[38]})(label :text \"${days[39]})(label :text \"${days[40]})(label :text \"${days[41]}) \
                                     ) \
                                 ) \
                             )"
