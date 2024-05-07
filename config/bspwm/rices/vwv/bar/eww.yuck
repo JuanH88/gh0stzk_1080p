@@ -28,7 +28,7 @@
     )
     (button 
       :class "sleep"
-      :onclick "eww -c ~/.config/bspwm/rices/vwv/bar open powermenu --toggle & systemctl suspend &"
+      :onclick "${EWW_CMD} open powermenu --toggle & systemctl suspend &"
       ""
     )
   )
@@ -74,7 +74,7 @@
     )
     (button 
       :class "power"
-      :onclick "eww -c ~/.config/bspwm/rices/vwv/bar open powermenu --toggle &"
+      :onclick "${EWW_CMD} open powermenu --toggle &"
       ""
     )
   )
@@ -111,7 +111,7 @@
   (button :class "music"
        :halign "center"
        :style { music == "" ? "background-color:transparent" : ""}
-       :onclick {ismusicopenornot != false ? `eww -c ~/.config/bspwm/rices/vwv/bar open musiccenter --toggle --no-daemonize & eww -c ~/.config/bspwm/rices/vwv/bar update ismusicopenornot=false` : ismusicopenornot != true ? `eww -c ~/.config/bspwm/rices/vwv/bar open musiccenter --no-daemonize & eww -c ~/.config/bspwm/rices/vwv/bar update ismusicopenornot=true` : "Nothing is currently playing."}
+       :onclick {ismusicopenornot != false ? `${EWW_CMD} open musiccenter --toggle --no-daemonize & ${EWW_CMD} update ismusicopenornot=false` : ismusicopenornot != true ? `${EWW_CMD} open musiccenter --no-daemonize & ${EWW_CMD} update ismusicopenornot=true` : "Nothing is currently playing."}
       {ismusicopenornot != false ? "󰅖" : music != "" ? "  ${music}" : ""}
   )
 )
@@ -151,11 +151,11 @@
     (box :spacing 10
       (button :class { networkstatus != "lo" ? "testenabled" : "test"} :onclick {networkstatus != "lo" ? "rfkill block wifi &" : "rfkill unblock wifi"} "󰤨 ")
       (button :class { bluetoothstatus != "no" ? "testenabled" : "test"}  :onclick {bluetoothstatus != "no" ? "bluetoothctl power off" : "bluetoothctl power on"}  "")
-      (button :class { nighttoggle != false ? "testenabled" : "test"} :onclick {nighttoggle != false ? "~/.config/bspwm/rices/vwv/bar/scripts/redshift toggle && eww -c ~/.config/bspwm/rices/vwv/bar update nighttoggle=false" : "~/.config/bspwm/rices/vwv/bar/scripts/redshift toggle && eww -c ~/.config/bspwm/rices/vwv/bar update nighttoggle=true"} " ")
+      (button :class { nighttoggle != false ? "testenabled" : "test"} :onclick {nighttoggle != false ? "~/.config/bspwm/rices/vwv/bar/scripts/redshift toggle && ${EWW_CMD} update nighttoggle=false" : "~/.config/bspwm/rices/vwv/bar/scripts/redshift toggle && ${EWW_CMD} update nighttoggle=true"} " ")
     )
     (box :spacing 10
-      (button :class "test" :onclick "eww -c ~/.config/bspwm/rices/vwv/bar open actioncenter --toggle && ScreenShoTer --sel" "󰹑 ")
-      (button :class "test" :onclick "thunar ~ & eww -c ~/.config/bspwm/rices/vwv/bar open actioncenter --toggle &" " ")
+      (button :class "test" :onclick "${EWW_CMD} open actioncenter --toggle && ScreenShoTer --sel" "󰹑 ")
+      (button :class "test" :onclick "thunar ~ & ${EWW_CMD} open actioncenter --toggle &" " ")
       (button :class "test" :onclick "./scripts/lightmode.sh" "")
     )
   )
@@ -198,8 +198,8 @@
        :orientation "h"
        :space-evenly false
        :valign "center"
-    (button :onclick "eww -c ~/.config/bspwm/rices/vwv/bar close calendarcenter --no-daemonize; eww -c ~/.config/bspwm/rices/vwv/bar open actioncenter --toggle --no-daemonize &"
-      :onrightclick "eww -c ~/.config/bspwm/rices/vwv/bar close actioncenter --no-daemonize; eww -c ~/.config/bspwm/rices/vwv/bar open calendarcenter --toggle --no-daemonize &"
+    (button :onclick "${EWW_CMD} close calendarcenter --no-daemonize; ${EWW_CMD} open actioncenter --toggle --no-daemonize &"
+      :onrightclick "${EWW_CMD} close actioncenter --no-daemonize; ${EWW_CMD} open calendarcenter --toggle --no-daemonize &"
     "${hours}:${minutes} ${pmoram}")
   )
 )

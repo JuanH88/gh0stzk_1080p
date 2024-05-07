@@ -45,7 +45,6 @@
 (defvar notification ``)
 (defvar notificationreveal false)
 (defvar notifsliteral "")
-(defvar ndunst "true")
 
 (defpoll month_year :interval "24h"
     "date '+%B  -  %Y' | awk '{print toupper(substr($0,1,1)) substr($0,2)}'")
