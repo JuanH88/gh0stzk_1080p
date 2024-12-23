@@ -18,7 +18,7 @@
         (box :orientation "v" :space-evenly "false" :valign "end" :spacing 10
             (box :orientation "h" :spacing 10
                 (button :class "test" :style { notifsliteral == "" ? "font-size:0px; background-color:transparent;" : "min-width: 0px; min-height: 0px;"} " 󰂛   Silence")
-                (button :class "test" :onclick `${EWW_CMD} close calendarcenter; ${EWW_CMD} update notifsliteral=""; sed -i '34,$d' ~/.config/bspwm/rices/vwv/bar/scripts/notifhistory.sh` :style { notifsliteral == "" ? "font-size:0px; background-color:transparent;" : "min-width: 0px; min-height: 0px;"} "   Clear All")
+                (button :class "test" :onclick `${EWW_CMD} close calendarcenter; ${EWW_CMD} update notifsliteral=""; sed -i '33,$d' ~/.config/bspwm/rices/vwv/bar/scripts/notifhistory.sh` :style { notifsliteral == "" ? "font-size:0px; background-color:transparent;" : "min-width: 0px; min-height: 0px;"} "   Clear All")
             )
         )
     )

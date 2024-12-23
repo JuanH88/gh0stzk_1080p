@@ -3,7 +3,7 @@
 (defpoll networkstatus :interval "1s"
   `nmcli -t -f NAME connection show --active | head -n 1`)
 (defpoll bluetoothstatus :interval "1s"
-  `bluetoothctl show | grep "Powered" | cut -c11-`)
+  `bluetoothctl show | grep "PowerState" | cut -c14-`)
 (defpoll temp :interval "1s"
   "sensors | grep -A 0 'temp1' | cut -c16-17 | head -n 1")
 (defpoll cpusage :interval "1s"
@@ -41,6 +41,7 @@
 (defvar ismusicopenornot false)
 (defvar bluetoggle false)
 (defvar nighttoggle false)
+(defvar nightmode false)
 
 (defvar notification ``)
 (defvar notificationreveal false)

@@ -36,7 +36,7 @@
 
 (defwidget meters []
   (box :class "meters" :orientation "h" :halign "end" :spacing 12 :space-evenly "false"
-    (metric :label "󰍛"
+    (metric :label "󱃃"
             :value "󱃃 ${temp}C°"
             :onchange ""
             :onclick "")
@@ -55,7 +55,7 @@
     (metric :label ""
             :value {volume != "0" ? "󰕾  ${volume}%" : "󰝟 "}
             :onchange "amixer -D pulse sset Master {}%"
-            :onclick "~/.config/bspwm/rices/vwv/bar/scripts/volume.sh --toggle")
+            :onclick "./scripts/volume.sh --toggle")
   )
 )
 
@@ -65,7 +65,7 @@
     (button 
       :class "bluetooth"
       :onclick "rofi-bluetooth &"
-      ""
+      {bluetoothstatus != "off-blocked" ? "" : "󰂲"}
     )
     (button 
       :class "wifi"
@@ -150,11 +150,11 @@
   (box :class "bottomcenter" :valign "end" :orientation "v" :halign "center" :spacing 10  
     (box :spacing 10
       (button :class { networkstatus != "lo" ? "testenabled" : "test"} :onclick {networkstatus != "lo" ? "rfkill block wifi &" : "rfkill unblock wifi"} "󰤨 ")
-      (button :class { bluetoothstatus != "no" ? "testenabled" : "test"}  :onclick {bluetoothstatus != "no" ? "bluetoothctl power off" : "bluetoothctl power on"}  "")
-      (button :class { nighttoggle != false ? "testenabled" : "test"} :onclick {nighttoggle != false ? "~/.config/bspwm/rices/vwv/bar/scripts/redshift toggle && ${EWW_CMD} update nighttoggle=false" : "~/.config/bspwm/rices/vwv/bar/scripts/redshift toggle && ${EWW_CMD} update nighttoggle=true"} " ")
+      (button :class { bluetoothstatus != "no" ? "testenabled" : "test"} :onclick {bluetoothstatus != "no" ? "bluetoothctl power off" : "bluetoothctl power on"}  "")
+      (button :class { nighttoggle != false ? "testenabled" : "test"} :onclick {nighttoggle != false ? "./scripts/redshift toggle && ${EWW_CMD} update nighttoggle=false" : "./scripts/redshift toggle && ${EWW_CMD} update nighttoggle=true"} " ")
     )
     (box :spacing 10
-      (button :class "test" :onclick "${EWW_CMD} open actioncenter --toggle && ScreenShoTer --sel" "󰹑 ")
+      (button :class "test" :onclick "${EWW_CMD} open actioncenter --toggle && ./scripts/screensht area &" "󰹑 ")
       (button :class "test" :onclick "thunar ~ & ${EWW_CMD} open actioncenter --toggle &" " ")
       (button :class "test" :onclick "./scripts/lightmode.sh" "")
     )
@@ -236,11 +236,6 @@
     )
   ))
 )
-
-;; windows
-(defwindow notification :monitor 0 :wm-ignore true :focusable "true"
-  :geometry (geometry :x "46" :y "6" :height "1068" :width "500" :anchor "top left")
-  (notifs-box))
 
 (defwindow bar
   :monitor 0

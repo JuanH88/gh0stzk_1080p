@@ -15,10 +15,11 @@ _BORDER_SIZE_=3
 _SHADOW_SIZE_='100x40+0+16'
 _ROUNDED_CORNER_=8
 _AUTHOR_POST_=( 'South' '+0+15' )
-_AUTHOR_NAME_=" $USER"
+_AUTHOR_NAME_="$USER"
 _AUTHOR_COLOR_='#1e1e2e'
 _FONT_SIZE_=12
 _FONT_='JetBrainsMonoNL-NFM-Bold'
+_ICON_SIZE_=60  # Tamaño de la imagen del icono
 
 # Función para verificar si un comando falló y notificarlo
 function check() {
@@ -74,14 +75,21 @@ function process_img() {
     magick convert "$_target_file_" \( +clone -background black -shadow $_SHADOW_SIZE_ \) +swap -background none -layers merge +repage "$_target_file_" >> $_LOG_FILE_ 2>&1 \
     && magick convert "$_target_file_" -bordercolor $_BG_COLOR_ -border $_BG_SIZE_ "$_target_file_" >> $_LOG_FILE_ 2>&1
 
-    #echo -en "  $_AUTHOR_NAME_  " | magick convert "$_target_file_" -gravity ${_AUTHOR_POST_[0]} -pointsize $_FONT_SIZE_ -fill $_AUTHOR_COLOR_ -undercolor none -font $_FONT_ -annotate ${_AUTHOR_POST_[1]} @- "$_target_file_" \
-    #>> $_LOG_FILE_ 2>&1 && magick convert "$_target_file_" -gravity South -chop 0x$(( $_BG_SIZE_ / 2 )) "$_target_file_" >> $_LOG_FILE_ 2>&1
+    # Crear imagen del icono de la cámara
+    magick convert -background none -fill $_AUTHOR_COLOR_ \
+        -size ${_ICON_SIZE_}x${_ICON_SIZE_} -gravity center \
+        -font "$_FONT_" "label:" "$_CONVERT_DIR_/camera_icon.png" >> $_LOG_FILE_ 2>&1
+
+    # Superponer el icono de la cámara en la imagen
+    magick composite -gravity ${_AUTHOR_POST_[0]} -geometry -32-5 \
+        "$_CONVERT_DIR_/camera_icon.png" "$_target_file_" "$_target_file_" >> $_LOG_FILE_ 2>&1
+
+    echo -en "  $_AUTHOR_NAME_  " | magick convert "$_target_file_" -gravity ${_AUTHOR_POST_[0]} -pointsize $_FONT_SIZE_ -fill $_AUTHOR_COLOR_ -undercolor none -font $_FONT_ -annotate ${_AUTHOR_POST_[1]} @- "$_target_file_" \
+    >> $_LOG_FILE_ 2>&1 && magick convert "$_target_file_" -gravity South -chop 0x$(( $_BG_SIZE_ / 2 )) "$_target_file_" >> $_LOG_FILE_ 2>&1
 
     magick convert "$_target_file_" -gravity North -background $_BG_COLOR_ -splice 0x$(( $_BG_SIZE_ / 2 )) "$_target_file_" >> $_LOG_FILE_ 2>&1
-    check
 
     magick convert "$_target_file_" -profile /usr/share/color/icc/colord/sRGB.icc "$_target_file_" >> $_LOG_FILE_ 2>&1
-    check
 
     mv "$_target_file_" "$_CONVERT_DIR_"
 }
@@ -90,7 +98,8 @@ function process_img() {
 function summary() {
     if [[ $3 != "failed" ]]; then
         xclip -selection clipboard -t image/png -i "$_LATEST_IMAGE_" >> $_LOG_FILE_ 2>&1
-        dunstify -i "$_LATEST_IMAGE_" -t 3000 "Screenshot Tool" "Screenshot taken successfully!" -a "Screenshot Tool"
+        dunstify -i "$_LATEST_IMAGE_" -t 3000 "Screenshot Tool" \
+            "Screenshot taken successfully!" -a "Screenshot Tool"
     fi
 }
 
@@ -115,7 +124,8 @@ function main() {
 
 # Función para obtener la imagen más reciente
 function get_latest_img() { 
-    _LATEST_IMAGE_=$(/bin/ls -th $_SCREENSHOT_DIR_ | grep -vE '.screensht.png$' | grep -E '.png$' | head -n 1)
+    _LATEST_IMAGE_=$(/bin/ls -th $_SCREENSHOT_DIR_ | grep -vE '.screensht.png$' \
+        | grep -E '.png$' | head -n 1)
 
     if [[ $( echo "$_LATEST_IMAGE_" | wc -w ) -eq 0 ]]; then
         exit 1
