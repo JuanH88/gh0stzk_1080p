@@ -46,6 +46,8 @@
 (defvar notification ``)
 (defvar notificationreveal false)
 (defvar notifsliteral "")
+(defpoll notif_check :interval "0"
+  `[ -z "$(sed -n '33{p;q;}' ~/.config/bspwm/rices/vwv/bar/scripts/notifhistory.sh)" ] && echo "false" || echo "true"`)
 
 (defpoll month_year :interval "24h"
     "date '+%B  -  %Y' | awk '{print toupper(substr($0,1,1)) substr($0,2)}'")

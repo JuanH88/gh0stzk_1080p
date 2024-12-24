@@ -86,9 +86,12 @@ set_position_widgets() {
 # Set dunst notification daemon config
 set_dunst_config() {
 	if command -v tiramisu &>/dev/null; then
-		pkill -f tiramisu; bash ~/.config/bspwm/rices/vwv/bar/scripts/notifications-logger.sh &
+		pkill -f tiramisu
+		bash ~/.config/bspwm/rices/vwv/bar/scripts/notifhistory.sh
+		bash ~/.config/bspwm/rices/vwv/bar/scripts/notifications-logger.sh &
 		sxhkd -c ~/.config/bspwm/rices/vwv/sxhkdrc &
 	else
+		bash ~/.config/bspwm/rices/vwv/bar/scripts/notifhistory.sh
 		dunst -config ~/.config/bspwm/rices/vwv/dunstrc &
 		dunstify -a "Notification Center" "Notification Center" "'tiramisu' is not installed." -u normal
 		sxhkd -c ~/.config/bspwm/rices/vwv/sxhkdrc &
